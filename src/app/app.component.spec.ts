@@ -17,11 +17,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'client'`, () => {
+  it(`should have as title 'TAOM-Quests-Frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    expect(app.title).toEqual('client');
+    expect(app.title).toEqual('TAOM-Quests-Frontend');
   });
 
   it('should render title', () => {
@@ -30,7 +30,7 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'client app is running!',
+      'TAOM-Quests-Frontend app is running!',
     );
   });
 });
