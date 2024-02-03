@@ -24,4 +24,11 @@ export class MainPageComponent implements OnInit {
           console.log(this.groups);
         });
   }
+
+  public getTestsByGroup(groupName: string): ITest[] {
+    const testsGroup: ITest[] = this.tests.filter(test => test.group === groupName);
+    const result: ITest[] | undefined[] = Array(8).fill(undefined).map((nothing, i) => testsGroup[i]);
+
+    return result;
+  }
 }

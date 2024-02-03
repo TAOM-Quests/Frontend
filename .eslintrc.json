@@ -72,7 +72,11 @@
           "anonymous": "always",
           "named": "never",
           "asyncArrow": "always"
-        }]
+        }],
+        "@stylistic/js/padding-line-between-statements": [
+          "error",
+          {"blankLine": "always", "prev": "*", "next": "return"}
+        ]
       }
     },
     {

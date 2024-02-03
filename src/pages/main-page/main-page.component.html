@@ -1,7 +1,28 @@
-<ng-container *ngFor="let groupName of groups">
-    <ng-container [ngTemplateOutlet]="group" [ngTemplateOutletContext]="{groupName}"></ng-container>
+<ng-container *ngFor="let groupName of groups; index as groupIndex">
+    <ng-container 
+        [ngTemplateOutlet]="testsGroup" 
+        [ngTemplateOutletContext]="{
+            groupName,
+            groupTests: getTestsByGroup(groupName),
+            align: groupIndex % 2 === 0 ? 'right' : 'left'
+        }"
+    />
 </ng-container>
 
-<ng-template #group let-groupName="groupName">
+<ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
     {{ groupName }}
+    <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
+        <ng-container 
+            *ngIf="!!groupTest; else emptyGroupItem"
+            [ngTemplateOutlet]="filledGroupItem"
+            [ngTemplateOutletContext]="{test: groupTest, index: testIndex}"
+        />
+    </ng-container>
+</ng-template>
+
+<ng-template #filledGroupItem let-test="test" let-index="index">
+    {{ test.title }}
+</ng-template>
+
+<ng-template #emptyGroupItem>
 </ng-template>
