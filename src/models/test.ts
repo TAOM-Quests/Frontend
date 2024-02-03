@@ -2,6 +2,7 @@ export interface ITest {
   title: string;
   tags: string[];
   group: string;
+  difficult: string;
   results: IResult[];
   questions: IQuestion[];
 }
