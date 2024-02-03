@@ -1,0 +1,7 @@
+<ng-container *ngFor="let groupName of groups">
+    <ng-container [ngTemplateOutlet]="group" [ngTemplateOutletContext]="{groupName}"></ng-container>
+</ng-container>
+
+<ng-template #group let-groupName="groupName">
+    {{ groupName }}
+</ng-template>
