@@ -4,7 +4,7 @@ import { MainPageComponent } from 'src/pages/main-page/main-page.component';
 import { PagesModule } from 'src/pages/pages.module';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent }
+  { path: '', component: MainPageComponent },
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs';
 import { ITest } from 'src/models/test';
 import { TestsService } from 'src/services/tests.service';
 
@@ -13,6 +14,7 @@ export class MainPageComponent implements OnInit {
   ) {}
 
   public tests: ITest[];
+  public popularTests: ITest[];
   public groups: Set<string>;
 
   public ngOnInit() {
@@ -20,8 +22,8 @@ export class MainPageComponent implements OnInit {
       .subscribe(
         (tests: ITest[]) => {
           this.tests = tests;
+          this.popularTests = this.tests.slice(0, 3);
           this.groups = new Set<string>(this.tests.map(test => test.group));
-          console.log(this.groups);
         });
   }
 

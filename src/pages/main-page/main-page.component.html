@@ -1,4 +1,20 @@
-<ng-container *ngFor="let groupName of groups; index as groupIndex">
+<div class="flex flex-col w-full items-center">
+    <h1 class="text-3xl font-bold m-5">Популярные тесты</h1>
+    <div class="
+        flex flex-row justify-between
+        w-7/12 min-h-[25svh] max-h-[30svh] 
+    ">
+        <ng-container 
+            *ngFor="let popularTest of popularTests">
+            <ng-container 
+                [ngTemplateOutlet]="popularTestItem"
+                [ngTemplateOutletContext]="{popularTest}"
+            ></ng-container>
+        </ng-container>
+    </div>
+</div>
+
+<div *ngFor="let groupName of groups; index as groupIndex">
     <ng-container 
         [ngTemplateOutlet]="testsGroup" 
         [ngTemplateOutletContext]="{
@@ -7,7 +23,21 @@
             align: groupIndex % 2 === 0 ? 'right' : 'left'
         }"
     />
-</ng-container>
+</div>
+
+<ng-template #popularTestItem let-popularTest="popularTest">
+    <div class="w-1/4 bg-red-500 rounded-md p-5">
+        <div class="
+            flex items-end
+            h-full
+           border-white border-2
+        ">
+            <p class="text-2xl text-white font-bold mb-3 ml-3">
+                {{ popularTest.title }}
+            </p>
+        </div>
+    </div>
+</ng-template>
 
 <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
     {{ groupName }}
