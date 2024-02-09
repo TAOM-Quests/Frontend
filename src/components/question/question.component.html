@@ -1,0 +1,17 @@
+<div>
+    <ng-container *ngIf="question.type === 'one'">
+        <tq-question-one
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'many'">
+        <tq-question-many
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+</div>

@@ -1,0 +1,19 @@
+<div>
+    {{ question.text }}
+
+    <ng-container *ngFor="let answer of question.answers">
+        <button     
+            *ngClass="{'selected': chosenAnswer === answer}"
+            (click)="chooseAnswer(answer)"
+        >{{ answer }}</button>
+    </ng-container>
+    
+    <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
+</div>

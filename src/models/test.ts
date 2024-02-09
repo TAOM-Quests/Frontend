@@ -7,12 +7,19 @@ export interface ITest {
   questions: IQuestion[];
 }
 
+export interface ITestDTO {
+  title: string;
+  tags: string[];
+  group: string;
+  difficult: string;
+}
+
 interface IResult {
   title: string;
   description: string;
 }
 
-interface IQuestion {
+export interface IQuestion {
   text: string;
   type: QuestionType;
   answers: string[];
