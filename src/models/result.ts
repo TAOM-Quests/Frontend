@@ -7,5 +7,5 @@ export interface IResult {
 
 export interface IAnswer {
     type: string;
-    answer: string | string[]
+    answer: string[]
 }

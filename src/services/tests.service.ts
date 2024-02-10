@@ -10,7 +10,7 @@ import { IAnswer, IResult } from 'src/models/result';
 export class TestsService {
   constructor(private _rest: RestService) {}
 
-  public currentTest: ITest;
+  private _currentTest: ITest;
   private _userAnswers: IAnswer[];
 
   public getAll(): Observable<ITest[]> {
@@ -21,13 +21,18 @@ export class TestsService {
     return this._rest.getByID('tests', id) as Observable<ITest>;
   }
 
-  public saveResult(): void {
+  public startTest(test: ITest): void {
+    this._currentTest = test;
+    this._userAnswers = [];
+  }
+
+  public saveResult(): Observable<IResult> {
     const result: IResult = {
-      test: this.currentTest,
-      answers: this._userAnswers
+      test: this._currentTest,
+      answers: this._userAnswers,
     }
 
-    this._rest.create('results', result);
+    return this._rest.create('results', result) as Observable<IResult>;
   }
 
   public addAnswer(answer: IAnswer): void {

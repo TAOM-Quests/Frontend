@@ -1,4 +1,6 @@
 <div>
+    {{ question.text }}
+
     <ng-container *ngIf="question.type === 'one'">
         <tq-question-one
             [question]="question"

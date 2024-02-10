@@ -16,7 +16,7 @@ export class QuestionComponent {
     private _testService: TestsService,
   ) {}
 
-  public onReply(userAnswer: string | string[]) {
+  public onReply(userAnswer: string[]) {
     const answer: IAnswer = {
       type: this.question.type,
       answer: userAnswer,

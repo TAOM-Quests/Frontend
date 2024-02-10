@@ -9,7 +9,7 @@ import { IQuestion } from 'src/models/test';
 export class QuestionOneComponent {
   @Input() question: IQuestion;
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
-  @Output() reply: EventEmitter<string> = new EventEmitter<string>();
+  @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   public chosenAnswer: string;
   public isAnswered: boolean;
@@ -20,10 +20,22 @@ export class QuestionOneComponent {
 
   public replyQuestion(): void {
     this.isAnswered = true;
-    this.reply.emit(this.chosenAnswer);
+    this.reply.emit([this.chosenAnswer]);
   }
 
   public completeQuestion(): void {
     this.next.emit();
+  }
+
+  public isSelectedAnswer(answer: string): boolean {
+    return answer === this.chosenAnswer;
+  }
+
+  public isCorrectAnswer(answer: string): boolean {
+    return answer === this.question.correctAnswer;
+  }
+
+  public isWrongAnswer(answer: string): boolean {
+    return this.isSelectedAnswer(answer) && !this.isCorrectAnswer(answer);
   }
 }

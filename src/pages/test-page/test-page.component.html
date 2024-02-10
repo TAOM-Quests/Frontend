@@ -1,5 +1,35 @@
-<ng-container *ngFor="let question of test.questions">
-    <tq-question
-        [question]="question"
+<div>
+    <ng-template
+        *ngIf="!isStarted"
+        [ngTemplateOutlet]="start"
     />
-</ng-container>
+
+    <ng-template
+        *ngIf="isStarted && !isComplete"
+        [ngTemplateOutlet]="question"
+    />
+
+    <ng-template
+        *ngIf="isComplete"
+        [ngTemplateOutlet]="result"
+    />
+</div>
+
+<ng-template #start>
+    {{ test.title }}
+    <button (click)="onStart()">Start</button>
+</ng-template>
+
+<ng-template #question>
+    <ng-container *ngFor="let question of test.questions; index as questionIndex">
+        <tq-question
+            *ngIf="questionIndex === currentQuestionIndex"
+            [question]="question"
+            (next)="onNext()"
+        />
+    </ng-container>
+</ng-template>
+
+<ng-template #result>
+    Тип результат
+</ng-template>
