@@ -32,7 +32,7 @@ export class QuestionOneComponent {
   }
 
   public isCorrectAnswer(answer: string): boolean {
-    return answer === this.question.correctAnswer;
+    return !!this.question.correctAnswer?.includes(answer);
   }
 
   public isWrongAnswer(answer: string): boolean {
