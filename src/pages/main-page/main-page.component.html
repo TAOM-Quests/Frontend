@@ -28,6 +28,9 @@
 <ng-template #popularTestItem let-popularTest="popularTest">
     <div class="h-0 w-1/5 pb-[18.5%] rounded-md relative mx-6 cardPopularTest">
         <div class="flex h-[14.5vw] border-white border-2 cover absolute w-full">
+            <div class="flex items-center justify-center absolute w-full h-full overflow-hidden">
+                <img class="w-auto max-w-[1000px] h-full"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
+            </div>
             <img class="taom-logo absolute top-7 right-6 w-11 h-11"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
             <p class="flex popularTest-title 2xl:text-3xl xl:text-2xl lg:text-lg text-white font-semibold mb-6 ml-7 items-end">
                 {{ popularTest.title }}
