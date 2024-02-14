@@ -53,11 +53,11 @@ $transition-time: 2.3s;
 				&:before{
 					transform: translateZ(30px);
 				}
-				&:after{
-					// background-color: black;
-				}
 				.popularTest-title{
 					transform: translateZ(100px);
+				}
+				&:after{
+					// background-color: black;
 				}
 				.taom-logo{
 					transform: translateZ(60px);
@@ -71,31 +71,10 @@ $transition-time: 2.3s;
 			transform-style: preserve-3d;
 			transition: ease all $transition-time;
 			&:before{
-				content: '';
-				position: absolute;
-				border: 3px solid rgba(255,255,255,.5);
-				box-shadow: 0 0 12px rgba(0,0,0,.3); 
-				top:15px;
-				left:15px;
-				right:15px;
-				bottom:15px;
-				z-index: 2;
 				transition: ease all $transition-time;
 				transform-style: preserve-3d;
 				transform: translateZ(0px);
 			}
-			&:after{
-				content: '';
-				position: absolute;
-				top:0px;
-				left:0px;
-				right:0px;
-				bottom:0px;
-				z-index: 2;
-				transition: ease all 1.3s;
-				background: rgba(0,0,0,.4);
-			}
-
 			.popularTest-title{
 				transform-style: preserve-3d;
 				transition: ease all $transition-time;
@@ -110,7 +89,6 @@ $transition-time: 2.3s;
 			}
 		}
 		.cardPopularTest-back{
-			background: #0b0f08;
 			transform-style: preserve-3d;
 			transition: ease all $transition-time;
 			transform: translateZ(-1px);
@@ -124,3 +102,87 @@ $transition-time: 2.3s;
 		}
 	}
 }
+@media (max-width: 1024px) {
+	.cardPopularTest:hover{
+		padding-bottom: 280px;
+	}
+	.cardPopularTest:hover .popularTest-img{
+		width: 100%;
+  		height: 100%;
+  		object-fit: cover;
+	}
+	.popularTest-img{
+		width: 100%;
+  		height: 100%;
+  		object-fit: cover;
+	}
+	.popularTest-title-left {
+		transform: translateX(-50%);
+		transition: ease all $transition-time;
+	}
+	.cardPopularTest:hover .popularTest-title-left {
+		left: 0;
+		transform: translateX(0);
+		transition: ease all $transition-time;
+		margin-left: 3.5vw;
+	}
+	.popularTest-title-left::after {
+		content: "";
+		position: absolute;
+		height: 0.3125rem;
+		width: calc(100% + 1.25rem);
+		bottom: calc((1.25rem - 0.5rem) * -1);
+		left: -1.25rem;
+		background-color: white;
+		box-shadow: 0 0 12px rgba(0,0,0,.3); 
+		z-index: 2;
+	  }
+	  .popularTest-title-left::after {
+		opacity: 0;
+		transform: scaleX(0);
+		transition: opacity 1000ms ease-in, transform 500ms ease-out;
+		transition-delay: 500ms;
+		transform-origin: right;
+	  }
+	  .cardPopularTest:hover .popularTest-title-left::after,
+	  .cardPopularTest:focus-within .popularTest-title-left::after {
+		opacity: 1;
+		transform: scaleX(1);
+		transform-origin: left;
+		transition: opacity 2s ease-in, transform 2s ease-in;
+		transition-delay: 500ms;
+	  }
+	  .cardPopularTest-back{
+			opacity: 0;
+			transition: opacity 1000ms ease-in, transform 2s ease-out;
+			z-index: 3;
+			background: transparent;
+			padding-bottom: 2.5%;
+		}
+		.cardPopularTest:hover .cardPopularTest-back{
+			opacity: 1;
+			transform: scaleX(1);
+			transform-origin: left;
+			transition: opacity 3s ease-in, transform 500ms ease-out;
+			z-index: 3;
+			background: transparent;
+			padding-bottom: 2.5%;
+		}
+	.cardPopularTest{
+		transition: ease-in-out all $transition-time;
+		perspective: 1200px;
+		transform: translateX(0);
+		&:hover{
+			.taom-logo{
+				transform:translate(0, 10%);
+			}
+			
+		}
+		.taom-logo{
+			transition: ease all $transition-time;
+			z-index:4;
+			transform: translateZ(0px);
+		}
+	}
+}
+  

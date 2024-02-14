@@ -26,17 +26,21 @@
 </div>
 
 <ng-template #popularTestItem let-popularTest="popularTest">
-    <div class="w-1/5 max-lg:w-3/5 pb-[18.5%] max-lg:pb-[80px] relative mx-6 max-lg:mx-0 cardPopularTest overflow-hidden rounded-xl">
-        <div class="flex h-[14.5vw] border-white border-2 cover absolute w-full h-full">
+    <div class=" flex w-1/5 max-lg:w-3/5 pb-[18.5%] max-lg:pb-[80px] relative mx-6 max-lg:mx-0 max-lg:my-1 cardPopularTest overflow-hidden rounded-xl">
+        <div class="flex border-white border-2 cover absolute w-full h-full max-lg:items-center max-lg:justify-center ">
             <div class="flex items-center justify-center absolute w-full h-full overflow-hidden">
-                <img class="w-auto max-lg:w-full max-w-[1000px] h-full max-lg:h-auto z-[1]"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
+                <img class="popularTest-img w-auto w-full max-w-[1000px] h-full object-cover z-[1]"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
             </div>
             <img class="taom-logo absolute top-6 max-lg:top-5 right-6 w-11 h-11 max-lg:w-9 max-lg:h-9"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
-            <p class="flex popularTest-title max-lg:text-2xl max-lg:text-center 2xl:text-3xl xl:text-2xl lg:text-sm text-white font-semibold mb-7 ml-7 mr-7 max-lg:m-auto items-end">
-                {{ popularTest.title }}
-            </p>
-            <div class="cardPopularTest-back flex absolute w-full h-full items-center justify-center ">
-                <p class="text-white text-center 2xl:max-w-[222px] 2xl:text-lg lg:max-w-[155px] lg:text-sm">Hello! {{popularTest.title}}</p>
+            <div class="flex popularTest-title max-lg:items-center max-lg:text-center max-lg:relative max-lg:w-full max-lg:h-[50px]">
+                <p class="flex popularTest-title popularTest-title-left max-lg:text-2xl max-lg:text-center 2xl:text-3xl xl:text-2xl lg:text-base text-white font-semibold mb-7 ml-7 mr-7 max-lg:m-0 items-end max-lg:absolute max-lg:left-[50%]">
+                    {{ popularTest.title }}
+                </p>
+            </div>
+            <div class="cardPopularTest-back flex absolute w-full h-full items-center justify-center max-lg:items-end">  
+                <div class="cardPopularTest-back flex absolute max-lg:max-w-[85%] max-lg:max-h-[30%] w-full h-full items-center justify-center max-lg:justify-start max-lg:items-start">
+                    <p class="max-lg:text-lg text-white max-lg:text-start text-center 2xl:max-w-[222px] 2xl:text-lg lg:max-w-[155px] lg:text-sm max-lg:font-serif">Hello! {{popularTest.title}}</p>
+                </div>
             </div>
         </div>
     </div>
