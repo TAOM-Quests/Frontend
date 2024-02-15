@@ -56,9 +56,6 @@ $transition-time: 2.3s;
 				.popularTest-title{
 					transform: translateZ(100px);
 				}
-				&:after{
-					// background-color: black;
-				}
 				.taom-logo{
 					transform: translateZ(60px);
 				}
@@ -102,7 +99,7 @@ $transition-time: 2.3s;
 		}
 	}
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 	.cardPopularTest:hover{
 		padding-bottom: 280px;
 	}
@@ -124,7 +121,7 @@ $transition-time: 2.3s;
 		left: 0;
 		transform: translateX(0);
 		transition: ease all $transition-time;
-		margin-left: 3.5vw;
+		margin-left: 2.4rem;
 	}
 	.popularTest-title-left::after {
 		content: "";
@@ -157,7 +154,6 @@ $transition-time: 2.3s;
 			transition: opacity 1000ms ease-in, transform 2s ease-out;
 			z-index: 3;
 			background: transparent;
-			padding-bottom: 2.5%;
 		}
 		.cardPopularTest:hover .cardPopularTest-back{
 			opacity: 1;
@@ -166,7 +162,6 @@ $transition-time: 2.3s;
 			transition: opacity 3s ease-in, transform 500ms ease-out;
 			z-index: 3;
 			background: transparent;
-			padding-bottom: 2.5%;
 		}
 	.cardPopularTest{
 		transition: ease-in-out all $transition-time;
@@ -185,4 +180,16 @@ $transition-time: 2.3s;
 		}
 	}
 }
-  
+@media (max-width: 500px) {
+	.cardPopularTest{
+		width: 100%;
+	}
+	.popularTest-title-left{
+		font-size: 4.3vw;
+	}
+}
+@media (max-width: 400px) {
+	.popularTest-title-left{
+		font-size: 5.2vw;
+	}
+}
