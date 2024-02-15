@@ -14,16 +14,24 @@
         </ng-container>
     </div>
 </div>
-
-<div *ngFor="let groupName of groups; index as groupIndex">
-    <ng-container 
-        [ngTemplateOutlet]="testsGroup" 
-        [ngTemplateOutletContext]="{
-            groupName,
-            groupTests: getTestsByGroup(groupName),
-            align: groupIndex % 2 === 0 ? 'right' : 'left'
-        }"
-    />
+<div class="flex flex-col items-center 
+            w-full my-16">
+    <h1 class="text-3xl font-bold m-5 max-sm:text-2xl">Тесты</h1>
+    <div class="
+        flex justify-center flex-col 
+        w-10/12 
+    ">
+        <div *ngFor="let groupName of groups; index as groupIndex">
+            <ng-container 
+                [ngTemplateOutlet]="testsGroup" 
+                [ngTemplateOutletContext]="{
+                    groupName,
+                    groupTests: getTestsByGroup(groupName),
+                    align: groupIndex % 2 === 0 ? 'right' : 'left'
+                }"
+            />
+        </div>
+    </div>
 </div>
 
 <ng-template #popularTestItem let-popularTest="popularTest">
@@ -71,18 +79,49 @@
 
 <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
     {{ groupName }}
-    <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
-        <ng-container 
-            *ngIf="!!groupTest; else emptyGroupItem"
-            [ngTemplateOutlet]="filledGroupItem"
-            [ngTemplateOutletContext]="{test: groupTest, index: testIndex}"
-        />
-    </ng-container>
+    <div class="flex flex-wrap flex-row">
+        <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
+            <ng-container 
+                *ngIf="!!groupTest; else emptyGroupItem"
+                [ngTemplateOutlet]="filledGroupItem"
+                [ngTemplateOutletContext]="{test: groupTest, index: testIndex}"
+            />
+        </ng-container>
+    </div>
 </ng-template>
 
+
 <ng-template #filledGroupItem let-test="test" let-index="index">
-    {{ test.title }}
+    <div class=" flex relative
+                w-1/5 pb-[18.5%]
+                overflow-hidden rounded-xl
+                index{{index}}">
+        <div class="flex absolute
+                    w-full h-full
+                    back-gray">
+            <div class="flex items-center justify-center absolute 
+                            w-full h-full 
+                            overflow-hidden">
+                    <img class="w-auto w-full max-w-[1000px] h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
+            </div>
+            <div class="flex justify-end items-end test-title-items">
+                <div class="flex flex-col justify-center items-center test-title">
+                    <div class="flex flex-row h-8 justify-center items-center mb-2">
+                        <div class="line"></div>
+                        <img class=" w-7 h-7
+                                    z-[2] mx-2
+                                    taom-logo"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
+                        <div class="line"></div>
+                    </div>
+                    <div class=" z-[2]">
+                        <p class="font-serif text-white text-center text-xl">{{ test.title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </ng-template>
+
 
 <ng-template #emptyGroupItem>
 </ng-template>
