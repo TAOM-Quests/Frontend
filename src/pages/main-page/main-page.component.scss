@@ -201,11 +201,11 @@ $transition-time: 2.3s;
     z-index: 2;
     height: 0;
 }
-.index0{
-	left: 17%;
-}
 .index0, .index1{
 	width: 30%;
+}
+.index0{
+	left: 17%;
 }
 .index0 .back-gray{
 	&:after{
@@ -220,6 +220,22 @@ $transition-time: 2.3s;
 	}
 	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
 }
+.index0 .test-title-items-back{
+	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
+}
+.index0 .test-title{
+	margin-left: 2vw;
+	margin-bottom: 3vw;
+}
+.index0:hover .back-gray {
+	transition: ease all $transition-time;
+	clip-path: polygon(0px 0px, 0px 100%, 50% 100%, 50% 0px);
+	transform: translate(-47%, 0);
+}
+.index0 .back-gray{
+	transition: ease all $transition-time;
+}
+
 .index1 .back-gray{
 	&:after{
 		content: '';
@@ -233,15 +249,8 @@ $transition-time: 2.3s;
 	}
 	clip-path:polygon(100% 0%, 60% 0%, 0% 100%, 100% 100%);
 }
-.index0 .popularTest-img{
-	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
-}
-.index1 .popularTest-img{
+.index1 .test-title-items-back{
 	clip-path:polygon(100% 0%, 60% 0%, 0% 100%, 100% 100%);
-}
-.index0 .test-title{
-	margin-left: 2vw;
-	margin-bottom: 3vw;
 }
 .index1 .test-title{
 	margin-right: 2vw;
