@@ -200,6 +200,11 @@ $transition-time: 2.3s;
     width: 50px;
     z-index: 2;
     height: 0;
+	transition: ease all $transition-time;
+}
+.index0:hover .line, .index1:hover .line{
+    width: 40px;
+	transition: ease all $transition-time;
 }
 .index0, .index1{
 	width: 30%;
@@ -216,24 +221,42 @@ $transition-time: 2.3s;
 		right:0px;
 		bottom:0px;
 		z-index: 1;
+		transition: ease all $transition-time;
 		background: rgba(0,0,0,.4);
 	}
 	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
 }
+.index0:hover .test-title-items-back{
+	z-index: 5;
+	opacity: 1;
+	transition: ease all 6s;
+}
 .index0 .test-title-items-back{
-	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
+	z-index: -1;
+	opacity: 0;
+	transition: ease all $transition-time;
 }
 .index0 .test-title{
 	margin-left: 2vw;
 	margin-bottom: 3vw;
 }
 .index0:hover .back-gray {
+	&:after{
+		transition: ease all $transition-time;
+		background: rgba(0,0,0,.8);
+	}
 	transition: ease all $transition-time;
-	clip-path: polygon(0px 0px, 0px 100%, 50% 100%, 50% 0px);
-	transform: translate(-47%, 0);
+	transform: translate(-33%, 0);
+	width: 37vw;
+	clip-path: polygon(0px 0px, 0px 100%, 40% 150%, 100% 0px);
 }
 .index0 .back-gray{
 	transition: ease all $transition-time;
+}
+.index0 .position-test-title{
+	justify-content: center;
+	align-items: center;
+	margin-left: 5%;
 }
 
 .index1 .back-gray{
@@ -258,4 +281,20 @@ $transition-time: 2.3s;
 }
 .index1 .test-title-items{
 	width: 100%;
+}
+.index1:hover .back-gray {
+	transition: ease all $transition-time;
+	clip-path: polygon(100% 0%, 50% 0%, 50% 100%, 100% 100%);
+	transform: translate(47%, 0);
+}
+.index1 .back-gray{
+	transition: ease all $transition-time;
+}
+.index1 .position-test-title{
+	justify-content: center;
+	align-items: center;
+	margin-right: 5%;
+}
+.index1 .test-title-items-back{
+	justify-content: end;
 }

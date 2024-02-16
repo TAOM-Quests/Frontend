@@ -93,7 +93,7 @@
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
     <div class=" flex relative
-                w-1/5 pb-[18.5%]
+                w-1/5 pb-[18.5%] min-h-[180px] min-w-[300px]
                 rounded-xl
                 index{{index}}">
         <div class="flex absolute overflow-hidden
@@ -121,12 +121,12 @@
         </div>
         <div class="flex absolute 
                     w-full h-full 
-                    bg-black z-[-1] rounded-xl
+                     z-[-1] rounded-xl
                     test-title-items-back">
-                    <div class="flex justify-center items-center h-full w-[50%] ml-[5%]">
+                    <div class="flex h-full w-[50%] position-test-title">
                         <p class="text-white font-serif text-center
                         lg:max-w-[155px] 2xl:max-w-[222px]
-                        max-lg:text-lg max-lg:text-start 2xl:text-lg lg:text-sm">
+                        ">
                     Hello! {{test.title}} dsghfh fsdfhushsfhsfwf  uuwherwfgwer y gyuguyguy  yguy gi iygi  gi gigi </p>
                     </div>
         </div>
