@@ -20,6 +20,8 @@
     <ng-container *ngIf="question.type === 'sorting'">
         <tq-question-sorting
             [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
         />
     </ng-container>
 </div>

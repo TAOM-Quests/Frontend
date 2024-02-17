@@ -12,6 +12,11 @@
         <div
             *ngFor="let boxItem of box.data"
             cdkDrag
+            [cdkDragDisabled]="isAnswered"
+            [ngClass]="{
+                'correct': isAnswered && isCorrectAnswer(box.name, boxItem),
+                'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
+            }"
         >{{ boxItem }}</div>
     </div>
 
@@ -26,7 +31,17 @@
             <div
                 *ngFor="let answer of answers"
                 cdkDrag
+                [cdkDragDisabled]="isAnswered"
             >{{ answer }}</div>
         </div>
     </div>
+
+    <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
 </div>

@@ -18,6 +18,7 @@ export class QuestionSortingComponent implements OnInit{
   public isAnswered: boolean;
   public boxes: { name: string, data: string[] }[];
   public answers: string[];
+  private _rightFormedAnswer: string[];
 
   public ngOnInit(): void {
     this._prepareBoxes();
@@ -47,6 +48,25 @@ export class QuestionSortingComponent implements OnInit{
     event.container.element.nativeElement.classList.remove('active-box')
   }
 
+  public replyQuestion(): void {
+    this.isAnswered = true;
+    this._prepareRightFormedAnswer();
+    this.reply.emit(this._rightFormedAnswer);
+  }
+
+  public completeQuestion(): void {
+    this.next.emit();
+  }
+  
+  public isCorrectAnswer(boxName: string, answer: string): boolean {
+    const boxAnswers: string[] | undefined = this.question.correctAnswer
+      ?.find(correctBox => correctBox.split(':')[0] === boxName)
+      ?.split(':')[1]
+      .split('@ans=');
+
+    return boxAnswers?.includes(answer) ?? false;
+  }
+
   private _prepareBoxes(): void {
     this.boxes = [];
     this.question.answers
@@ -64,4 +84,21 @@ export class QuestionSortingComponent implements OnInit{
       .filter(answer => answer.split(':')[0] === 'answer')
       .map(answer => answer.split(':')[1]);
   }
+
+  private _prepareRightFormedAnswer(): void {
+    this._rightFormedAnswer = [];
+
+    this.boxes
+      .map(box => {
+        const boxName: string = box.name;
+        const boxData: string[] = box.data;
+        let formedAnswer = `${boxName}:`;
+
+        boxData.map(answer => {
+          formedAnswer += `@ans=${answer}`;
+        })
+
+        this._rightFormedAnswer.push(formedAnswer);
+      })
+  }  
 }
