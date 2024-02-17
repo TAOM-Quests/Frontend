@@ -26,4 +26,4 @@ export interface IQuestion {
   correctAnswer?: string[];
 }
 
-type QuestionType = 'one' | 'many';
+type QuestionType = 'one' | 'many' | 'sorting';

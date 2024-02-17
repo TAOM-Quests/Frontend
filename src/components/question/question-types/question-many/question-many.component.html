@@ -1,8 +1,13 @@
 <div>
-    {{ question.text }}
-
     <ng-container *ngFor="let answer of question.answers">
-        <button (click)="chooseAnswer(answer)">{{ answer }}</button>
+        <button 
+            [ngClass]="{
+                'selected': isSelectedAnswer(answer),
+                'correct': isAnswered && isCorrectAnswer(answer),
+                'wrong': isAnswered && isWrongAnswer(answer),
+            }"
+            (click)="chooseAnswer(answer)"
+        >{{ answer }}</button>
     </ng-container>
     
     <button

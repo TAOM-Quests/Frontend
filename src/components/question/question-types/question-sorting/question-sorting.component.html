@@ -1,0 +1,32 @@
+<div cdkDropListGroup>
+    <div 
+        *ngFor="let box of boxes"        
+        cdkDropList
+        [cdkDropListData]="box.data"
+        (cdkDropListEntered)="enableBoxSelectingStyle($event)"
+        (cdkDropListExited)="disableBoxSelectingStyle($event)"
+        (cdkDropListDropped)="moveAnswerToBox($event)"
+        >
+        <h2>{{ box.name }}</h2>
+
+        <div
+            *ngFor="let boxItem of box.data"
+            cdkDrag
+        >{{ boxItem }}</div>
+    </div>
+
+    <div>
+        <h2>Не распределено</h2>
+
+        <div
+            cdkDropList
+            [cdkDropListData]="answers"
+            (cdkDropListDropped)="moveAnswerToBox($event)"
+        >
+            <div
+                *ngFor="let answer of answers"
+                cdkDrag
+            >{{ answer }}</div>
+        </div>
+    </div>
+</div>

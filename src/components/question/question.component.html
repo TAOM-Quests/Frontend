@@ -16,4 +16,10 @@
             (next)="onNext()"
         />
     </ng-container>
+
+    <ng-container *ngIf="question.type === 'sorting'">
+        <tq-question-sorting
+            [question]="question"
+        />
+    </ng-container>
 </div>
