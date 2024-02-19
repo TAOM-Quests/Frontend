@@ -208,12 +208,10 @@ $transition-time: 2.3s;
     width: 40px;
 	transition: ease all $transition-time;
 }
-.index0, .index1{
-	// width: 30%;
-	// height: 0;
-}
 .index0{
 	grid-area: 1/2/3/4;
+	position: relative;
+    left: 2.4rem;
 }
 .index0 .back-gray{
 	&:after{
@@ -249,7 +247,7 @@ $transition-time: 2.3s;
 		background: rgba(0,0,0,.8);
 	}
 	transition: ease all $transition-time;
-	transform: translate(-33%, 0);
+	transform: translate(-15%, 0);
 	width: 36vw;
 	clip-path: polygon(0px 0px, 0px 100%, 60% 100%, 100% 0px);
 }
@@ -296,7 +294,7 @@ $transition-time: 2.3s;
 	}
 	transition: ease all $transition-time;
 	width: 37vw;
-	clip-path:polygon(100% 0%, 60% -50%, 0% 100%, 100% 100%);
+	clip-path:polygon(100% 0%, 80% -50%, 0% 100%, 100% 100%);
 }
 
 .index1 .position-test-title{
