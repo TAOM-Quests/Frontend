@@ -14,6 +14,7 @@
         </ng-container>
     </div>
 </div>
+
 <div class="flex flex-col items-center 
             w-full my-16">
     <h1 class="text-3xl font-bold m-5 max-sm:text-2xl">Тесты</h1>
@@ -46,7 +47,7 @@
             <div class="flex items-center justify-center absolute 
                         w-full h-full 
                         overflow-hidden">
-                <img class="w-auto w-full max-w-[1000px] h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
+                <img class="w-auto w-full h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
             </div>
             <img class="absolute 
                         w-11 h-11 max-lg:w-9 max-lg:h-9
@@ -69,7 +70,7 @@
                             max-lg:max-w-[85%] max-lg:max-h-[30%] w-full h-full max-[400px]:max-w-[75%] max-md:max-w-[80%]
                             max-[400px]:mb-[5vw] max-md:mb-[3.5vw] max-lg:mb-[2.8vw] cardPopularTest-back">
                     <p class="lg:max-w-[155px] 2xl:max-w-[222px]
-                            max-lg:text-lg text-white max-lg:text-start text-center 2xl:text-lg lg:text-sm max-lg:font-serif">
+                            max-lg:text-lg text-white max-lg:text-start text-center 2xl:text-lg lg:text-sm font-serif">
                         Hello! {{popularTest.title}} </p>
                 </div>
             </div>
@@ -78,8 +79,12 @@
 </ng-template>
 
 <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
-    {{ groupName }}
-    <div class="flex flex-wrap flex-row">
+    <div class="grid grid-cols-5 grid-rows-5 gap-5 
+                w-full h-full min-h-[700px]">
+                <div class="titleGroupTests">
+                    <h1 class="text-3xl font-bold mb-2 max-sm:text-2xl">{{ groupName }}</h1>
+                    <p>Описание туть >-<</p>
+                </div>
         <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
             <ng-container 
                 *ngIf="!!groupTest; else emptyGroupItem"
@@ -93,16 +98,16 @@
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
     <div class=" flex relative
-                w-1/5 pb-[18.5%] min-h-[180px] min-w-[300px]
-                rounded-xl
+                w-full h-full
+                rounded-md
                 index{{index}}">
         <div class="flex absolute overflow-hidden
-                    w-full h-full rounded-xl
+                    w-full h-full rounded-md
                     back-gray">
             <div class="flex items-center justify-center absolute 
                             w-full h-full 
                             overflow-hidden">
-                    <img class="w-auto w-full max-w-[1000px] h-full object-cover z-[1] rounded-xl popularTest-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
+                    <img class="w-auto w-full h-full object-cover z-[1] rounded-md popularTest-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
             </div>
             <div class="flex justify-end items-end test-title-items">
                 <div class="flex flex-col justify-center items-center test-title">
@@ -121,7 +126,7 @@
         </div>
         <div class="flex absolute 
                     w-full h-full 
-                     z-[-1] rounded-xl
+                    rounded-md
                     test-title-items-back">
                     <div class="flex h-full w-[50%] position-test-title">
                         <p class="text-white font-serif text-center
