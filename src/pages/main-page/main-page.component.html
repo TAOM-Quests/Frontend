@@ -79,11 +79,12 @@
 </ng-template>
 
 <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
-    <div class="grid grid-cols-5 grid-rows-5 gap-5 
-                w-full h-full min-h-[700px]">
+    <div class="grid grid-cols-5 grid-rows-5 max-[1000px]:grid-cols-4 max-[1000px]:grid-rows-10 gap-5 max-2xl:gap-3 max-lg:gap-2 mb-[4rem] mx-auto
+                w-full h-full min-h-[700px] max-xl:min-h-[500px] max-lg:min-h-[420px] max-[1000px]:w-[60%] max-[1000px]:min-w-[500px] max-[1000px]:min-h-[850px] 
+                groupTest-{{align}}">
                 <div class="titleGroupTests">
-                    <h1 class="text-3xl font-bold mb-2 max-sm:text-2xl">{{ groupName }}</h1>
-                    <p>Описание туть >-<</p>
+                    <h1 class="text-3xl max-xl:text-2xl font-bold mb-2 max-xl:mb-1 max-sm:text-2xl">{{ groupName }}</h1>
+                    <p class="text-lg max-xl:text-base">Описание туть >-<</p>
                 </div>
         <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
             <ng-container 
@@ -119,7 +120,7 @@
                         <div class="line"></div>
                     </div>
                     <div class=" z-[2]">
-                        <p class="font-serif text-white text-center text-xl">{{ test.title }}</p>
+                        <p class="font-serif text-white text-center text-2xl max-xl:text-xl mx-2">{{test.title}}</p>
                     </div>
                 </div>
             </div>

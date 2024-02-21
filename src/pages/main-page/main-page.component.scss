@@ -194,8 +194,12 @@ $transition-time: 2.3s;
 	}
 }
 
-.titleGroupTests{
+.groupTest-right .titleGroupTests{
 	grid-area: 3/3/3/1;
+}
+.groupTest-left .titleGroupTests{
+	grid-area: 4/5/3/6;
+	min-width: 200px;
 }
 .line{
 	border: 0.1px solid white;
@@ -204,14 +208,34 @@ $transition-time: 2.3s;
     height: 0;
 	transition: ease all $transition-time;
 }
+@media (max-width:1024px) {
+	.line{
+		width: 40px;
+	}
+}
 .index0:hover .line, .index1:hover .line{
     width: 40px;
 	transition: ease all $transition-time;
 }
-.index0{
+.groupTest-right .index0{
 	grid-area: 1/2/3/4;
 	position: relative;
     left: 2.4rem;
+}
+.groupTest-left .index0{
+	grid-area: 1/4/3/2;
+	position: relative;
+    left: 0;
+}
+@media (max-width: 1400px) {
+	.groupTest-right .index0{
+	left: 2rem;
+	}
+}
+@media (max-width: 1200px) {
+	.groupTest-right .index0{
+	left: 1.5rem;
+	}
 }
 .index0 .back-gray{
 	&:after{
@@ -247,9 +271,9 @@ $transition-time: 2.3s;
 		background: rgba(0,0,0,.8);
 	}
 	transition: ease all $transition-time;
-	transform: translate(-15%, 0);
+	transform: translate(-10%, 0);
 	width: 36vw;
-	clip-path: polygon(0px 0px, 0px 100%, 60% 100%, 100% 0px);
+	clip-path: polygon(0px 0px, 0px 100%, 45% 100%, 100% 0px);
 }
 .index0 .back-gray, .index1 .back-gray{
 	z-index: 3;
@@ -261,8 +285,23 @@ $transition-time: 2.3s;
 	margin-left: 5%;
 }
 
-.index1{
+.groupTest-right .index1{
 	grid-area: 1/3/3/5;
+}
+.groupTest-left .index1{
+	grid-area: 1/5/3/3;
+	position: relative;
+    left: -2.4rem;
+}
+@media (max-width: 1400px) {
+	.groupTest-left .index1{
+	left: -2rem;
+	}
+}
+@media (max-width: 1200px) {
+	.groupTest-left .index1{
+	left: -1.5rem;
+	}
 }
 .index1 .back-gray{
 	&:after{
@@ -305,7 +344,7 @@ $transition-time: 2.3s;
 .index1 .test-title-items-back{
 	justify-content: end;
 }
-.index2,.index3,.index4,.index5,.index6{
+.index2,.index3,.index4,.index5,.index6,.index7{
 	padding-bottom: 0;
 	&:after{
 		content: '';
@@ -320,39 +359,122 @@ $transition-time: 2.3s;
 		border-radius: 6px;
 	}
 }
-.index2{
+.index2 .back-gray,.index3 .back-gray,.index4 .back-gray,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
+	justify-content: center;
+}
+.index3 .back-gray,.index5 .back-gray,.index6 .back-gray{
+	align-items: center;
+}
+.index2 .test-title,.index4 .test-title,.index7 .test-title{
+	margin-bottom: 3vw
+}
+.groupTest-right .index2{
 	grid-area: 1/5/3/6;
 }
-.index3{
+.groupTest-right .index3{
 	grid-area: 3/3/3/5;
 }
-.index4{
+.groupTest-right .index4{
 	grid-area: 3/5/6/6;
 }
-.index5{
+.groupTest-right .index5{
 	grid-area: 4/2/4/4;
 }
-.index6{
+.groupTest-right .index6{
 	grid-area: 5/1/5/4;
 }
-.index7{
+.groupTest-right .index7{
 	grid-area: 4/4/6/4;
-	&:after{
-		content: '';
-		position: absolute;
-		top:0px;
-		left:0px;
-		right:0px;
-		bottom:0px;
-		z-index: 1;
-		transition: ease all $transition-time;
-		background: rgba(0,0,0,.4);
-		border-radius: 6px;
-	}
+}
+.groupTest-left .index2{
+	grid-area: 1/2/3/1;
+}
+.groupTest-left .index3{
+	grid-area: 4/4/3/2;
+}
+.groupTest-left .index4{
+	grid-area: 6/2/3/1;
+}
+.groupTest-left .index5{
+	grid-area: 5/5/4/3;
+}
+.groupTest-left .index6{
+	grid-area: 6/3/5/6;
+}
+.groupTest-left .index7{
+	grid-area: 6/3/4/2;
 }
 
-
-
+@media (max-width: 1000px) {
+	.groupTest-right .titleGroupTests{
+		grid-area: 1/5/2/1;
+	}
+	.groupTest-right .index0{
+		left: 0;
+    	grid-area: 4/4/2/1;
+	}
+	.groupTest-right .index1{
+		grid-area: 2/2/4/5;
+	}
+	.groupTest-right .index2{
+		grid-area: 4/5/6/3;
+	}
+	.groupTest-right .index3{
+		grid-area: 6/1/4/3;
+	}
+	.groupTest-right .index4{
+		grid-area: 7/5/11/3;
+	}
+	.groupTest-right .index5{
+		grid-area: 9/1/7/3;
+	}
+	.groupTest-right .index6{
+		grid-area: 6/1/6/5;
+	}
+	.groupTest-right .index7{
+		grid-area: 9/1/11/3;
+	}
+	.groupTest-left .titleGroupTests{
+		grid-area: 1/5/2/1;
+	}
+	.groupTest-left .index0{
+    	grid-area: 4/4/2/1;
+	}
+	.groupTest-left .index1{
+		left: 0;
+		grid-area: 2/2/4/5;
+	}
+	.groupTest-left .index2{
+		grid-area: 4/5/6/3;
+	}
+	.groupTest-left .index3{
+		grid-area: 6/1/4/3;
+	}
+	.groupTest-left .index4{
+		grid-area: 7/5/11/3;
+	}
+	.groupTest-left .index5{
+		grid-area: 9/1/7/3;
+	}
+	.groupTest-left .index6{
+		grid-area: 6/1/6/5;
+	}
+	.groupTest-left .index7{
+		grid-area: 9/1/11/3;
+	}
+	.index3 .test-title,.index5 .test-title{
+		margin-bottom: 3vw;
+	}
+	.index3 .back-gray,.index5 .back-gray{
+		align-items: end;
+	}
+	.index0 .back-gray{
+		clip-path: polygon(0px 0px, 0px 100%, 35% 100%, 95% 0px);
+	}
+	.index1 .back-gray{
+		clip-path: polygon(100% 0%, 65% 0%, 5% 100%, 100% 100%);
+	}
+}
 
 
 
