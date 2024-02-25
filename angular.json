@@ -64,15 +64,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TAOM-Quests-Frontend:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "buildTarget": "TAOM-Quests-Frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TAOM-Quests-Frontend:build:production"
+              "buildTarget": "TAOM-Quests-Frontend:build:production"
             },
             "development": {
-              "browserTarget": "TAOM-Quests-Frontend:build:development"
+              "buildTarget": "TAOM-Quests-Frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TAOM-Quests-Frontend:build"
+            "buildTarget": "TAOM-Quests-Frontend:build"
           }
         },
         "test": {
