@@ -1,5 +1,4 @@
-import { CdkDrag, CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { CommonModule } from '@angular/common';
+import { CdkDragDrop, CdkDragEnter, CdkDragExit,moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IQuestion } from 'src/models/test';
 
@@ -7,8 +6,6 @@ import { IQuestion } from 'src/models/test';
   selector: 'tq-question-sorting',
   templateUrl: './question-sorting.component.html',
   styleUrls: ['./question-sorting.component.scss'],
-  standalone: true,
-  imports: [CdkDropList, CdkDrag, CdkDropListGroup, CommonModule],
 })
 export class QuestionSortingComponent implements OnInit{
   @Input() question:IQuestion;

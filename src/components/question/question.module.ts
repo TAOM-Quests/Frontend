@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CdkDrag, CdkDropList, CdkDropListGroup, DragDropModule } from '@angular/cdk/drag-drop'
+import { DragDropModule } from '@angular/cdk/drag-drop'
 import { QuestionComponent } from './question.component';
 import { QuestionOneComponent } from './question-types/question-one/question-one.component';
 import { QuestionManyComponent } from './question-types/question-many/question-many.component';
@@ -17,13 +17,13 @@ import { QuestionSortingComponent } from './question-types/question-sorting/ques
     QuestionOneComponent,
     QuestionManyComponent,
     QuestionCodeComponent,
+    QuestionSortingComponent,
     QuestionMistakesComponent,
   ],
   imports: [
     CommonModule,
     DragDropModule,
     QuestionLinkComponent,
-    QuestionSortingComponent,
   ],
   exports: [
     QuestionComponent,
