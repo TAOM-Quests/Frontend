@@ -78,28 +78,9 @@
     </div>
 </ng-template>
 
-<!-- <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
-    <div class="grid grid-cols-5 grid-rows-5 max-[1000px]:grid-cols-4 max-[1000px]:grid-rows-10 gap-5 max-2xl:gap-3 max-lg:gap-2 mb-[4rem] mx-auto
-                w-full h-full min-h-[700px] max-xl:min-h-[500px] max-lg:min-h-[420px] max-[1000px]:w-[60%] max-[1000px]:min-w-[500px] max-[1000px]:min-h-[850px] 
-                groupTest-{{align}}">
-                <div class="titleGroupTests">
-                    <h1 class="text-3xl max-xl:text-2xl font-bold mb-2 max-xl:mb-1 max-sm:text-2xl">{{ groupName }}</h1>
-                    <p class="text-lg max-xl:text-base">Описание туть >-<</p>
-                </div>
-        <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
-            <ng-container 
-                *ngIf="!!groupTest; else emptyGroupItem"
-                [ngTemplateOutlet]="filledGroupItem"
-                [ngTemplateOutletContext]="{test: groupTest, index: testIndex}"
-            />
-        </ng-container>
-    </div>
-</ng-template> -->
-
-
 <ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
-    <div class="sm:grid max-sm:inline grid-cols-5 grid-rows-5 max-[1000px]:grid-cols-4 max-[1000px]:grid-rows-10 gap-5 max-2xl:gap-3 max-lg:gap-2 mb-[4rem] mx-auto
-    w-full h-full min-h-[700px] max-xl:min-h-[500px] max-lg:min-h-[420px] max-[1000px]:w-[60%] max-[1000px]:min-w-[500px] max-sm:min-w-[280px] max-[1000px]:min-h-[850px] max-sm:min-h-[250px] 
+    <div class="sm:grid max-sm:inline grid-cols-5 grid-rows-5 max-lg:grid-cols-4 max-lg:grid-rows-10 gap-5 max-2xl:gap-3 max-lg:gap-2 mb-[4rem] mx-auto
+    w-full h-full min-h-[700px] max-xl:min-h-[500px] max-lg:min-h-[420px] max-lg:w-[60%] max-lg:min-w-[500px] max-sm:min-w-[280px] max-lg:min-h-[850px] max-sm:min-h-[250px] 
                 groupTest-{{align}}">
         <div class="titleGroupTests">
             <h1 class="text-3xl max-xl:text-2xl font-bold mb-2 max-xl:mb-1 max-sm:text-2xl">{{ groupName }}</h1>
@@ -126,6 +107,11 @@
                     slideShadows: true
                 }"
                 [pagination]="true"
+                [autoplay]="{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    reverseDirection: true,
+                }"
             >
                 <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
                     <ng-template swiperSlide>
@@ -154,7 +140,7 @@
             <div class="flex items-center justify-center absolute 
                             w-full h-full 
                             overflow-hidden">
-                    <img class="w-auto w-full h-full object-cover z-[1] rounded-md popularTest-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
+                    <img class="w-auto w-full h-full object-cover z-[1] rounded-md test-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
             </div>
             <div class="flex justify-end items-end test-title-items">
                 <div class="flex flex-col justify-center items-center test-title">
@@ -166,21 +152,21 @@
                         <div class="line"></div>
                     </div>
                     <div class=" z-[2]">
-                        <p class="font-serif text-white text-center text-2xl max-xl:text-xl mx-2">{{test.title}}</p>
+                        <p class="font-serif text-white text-center text-2xl max-xl:text-xl ">{{test.title}}</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="flex absolute 
+            <div class="flex absolute 
                     w-full h-full 
                     rounded-md
                     test-title-items-back">
-                    <div class="flex h-full w-[50%] position-test-title">
-                        <p class="text-white font-serif text-center
-                        lg:max-w-[155px] 2xl:max-w-[222px]
+                    <div class="flex overflow-auto h-full w-[60%] position-test-title">
+                        <p class="text-white text-xl font-serif text-center max-xl:text-base
+                        max-w-[222px] max-2xl:max-w-[180px] max-xl:max-w-[135px] max-h-full py-3 max-lg:max-w-[80%] max-lg:p-0 max-lg:my-auto
                         ">
-                    Hello! {{test.title}} dsghfh fsdfhushsfhsfwf  uuwherwfgwer y gyuguyguy  yguy gi iygi  gi gigi </p>
+                    Hello! {{test.title}} dsghfh fsdfhushsfhsfwf  uuwherwfgwer y gyuguhsfhsfwf  uuwherwfgwer y gyuguyguy  yguy gi iygi  gi gigi  </p>
                     </div>
+        </div>
         </div>
     </div>
 </ng-template>

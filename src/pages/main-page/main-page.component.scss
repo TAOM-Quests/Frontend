@@ -271,18 +271,18 @@ $transition-time: 2.3s;
 		background: rgba(0,0,0,.8);
 	}
 	transition: ease all $transition-time;
-	transform: translate(-10%, 0);
-	width: 36vw;
-	clip-path: polygon(0px 0px, 0px 100%, 45% 100%, 100% 0px);
+	transform: translate(-25%, 0);
+	width: 45vw;
+	clip-path: polygon(0px 0px, 0px 100%, 53% 100%, 97% 0px);
 }
 .index0 .back-gray, .index1 .back-gray{
 	z-index: 3;
 	transition: ease all $transition-time;
 }
 .index0 .position-test-title{
-	justify-content: center;
-	align-items: center;
-	margin-left: 5%;
+	justify-content: end;
+    align-items: center;
+    padding-right: 5%;
 }
 
 .groupTest-right .index1{
@@ -316,9 +316,6 @@ $transition-time: 2.3s;
 	}
 	clip-path:polygon(100% 0%, 60% 0%, 0% 100%, 100% 100%);
 }
-.index1 .test-title-items-back{
-	clip-path:polygon(100% 0%, 60% 0%, 0% 100%, 100% 100%);
-}
 .index1 .test-title{
 	margin-right: 2vw;
 	margin-bottom: 3vw;
@@ -332,14 +329,13 @@ $transition-time: 2.3s;
 		background: rgba(0,0,0,.8);
 	}
 	transition: ease all $transition-time;
-	width: 37vw;
-	clip-path:polygon(100% 0%, 80% -50%, 0% 100%, 100% 100%);
+	width: 45vw;
+	clip-path:polygon(100% 0%, 80% -85%, 0% 100%, 100% 100%);
 }
 
 .index1 .position-test-title{
-	justify-content: center;
-	align-items: center;
-	margin-right: 5%;
+	justify-content: start;
+    align-items: center;
 }
 .index1 .test-title-items-back{
 	justify-content: end;
@@ -405,7 +401,7 @@ $transition-time: 2.3s;
 	grid-area: 6/3/4/2;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1023px) {
 	.groupTest-right .titleGroupTests{
 		grid-area: 1/5/2/1;
 	}
@@ -469,10 +465,43 @@ $transition-time: 2.3s;
 		align-items: end;
 	}
 	.index0 .back-gray{
-		clip-path: polygon(0px 0px, 0px 100%, 35% 100%, 95% 0px);
+		clip-path: polygon(0% 0%, 0% 100%, 35% 100%, 95% 0%);
+	}
+	.index0:hover .back-gray {
+		transform: translate(0, -141px);
+		width: 95%;
+		height: 19rem;
+		clip-path: polygon(0% 0%, 0% 100%, 37% 100%, 152% 0%);
+	}
+	.index0 .position-test-title {
+		justify-content: start;
+		align-items: center;
+		margin-left: 5%;
 	}
 	.index1 .back-gray{
 		clip-path: polygon(100% 0%, 65% 0%, 5% 100%, 100% 100%);
+	}
+	.index1:hover .back-gray {
+		width: 100%;
+		height: 19rem;
+		clip-path: polygon(100% 0%, 66% 0%, -45% 100%, 100% 100%);
+	}
+	.index1 .test-title-items-back{
+		margin-left: 5%;
+		margin: 0;
+		align-items: end;
+	}
+	.index1 .position-test-title{
+		width: 100%;
+		align-items: end;
+		justify-content: center;
+		height: 115px;
+	}
+	.index1 .test-title {
+		margin: 4.5rem 2vw 0 0;
+	}
+	.index1 .test-title-items{
+		align-items: start;
 	}
 }
 
@@ -485,6 +514,7 @@ $transition-time: 2.3s;
 	@import "swiper/scss/navigation";
 	@import "swiper/scss/pagination";
 	@import "swiper/css/effect-coverflow";
+	@import "swiper/scss/autoplay";
 	.slider-effectCoverflow{
 		width: 83vw;
 		min-height: 300px;
@@ -505,10 +535,27 @@ $transition-time: 2.3s;
 			width: 50vw;
 			height: 50vw;
 		}
-		.swiper-slide img{
+		.swiper-slide .test-img{
 			display: block;
 			width: 100%;
 		}
+	}
+	.index0 .back-gray,.index1 .back-gray{
+		clip-path: none;
+	}
+	.index1 .test-title-items{
+		justify-content: center;
+	}
+	.index1 .test-title{
+		margin: 50px 0 0 0;
+	}
+	.index0 .back-gray,.index1 .back-gray,.index2 .back-gray,.index3 .back-gray,.index4 .back-gray,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 0;
+	}
+	.test-title{
+		margin-top: 50px;
 	}
 }
 
