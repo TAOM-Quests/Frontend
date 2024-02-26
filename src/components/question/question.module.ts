@@ -8,6 +8,9 @@ import { QuestionLinkComponent } from './question-types/question-link/question-l
 import { QuestionCodeComponent } from './question-types/question-code/question-code.component';
 import { QuestionMistakesComponent } from './question-types/question-mistakes/question-mistakes.component';
 import { QuestionSortingComponent } from './question-types/question-sorting/question-sorting.component';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -23,6 +26,9 @@ import { QuestionSortingComponent } from './question-types/question-sorting/ques
   imports: [
     CommonModule,
     DragDropModule,
+    MonacoEditorModule,
+    FormsModule,
+    BrowserModule,
     QuestionLinkComponent,
   ],
   exports: [

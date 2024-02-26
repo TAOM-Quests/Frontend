@@ -1,1 +1,16 @@
-<p>question-code works!</p>
+<div>
+    <ngx-monaco-editor
+        [options]="codeEditorOptions"
+        [(ngModel)]="code"
+        (init)="codeEditorInit($event)"
+    ></ngx-monaco-editor>
+    
+    <!-- <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button> -->
+</div>
