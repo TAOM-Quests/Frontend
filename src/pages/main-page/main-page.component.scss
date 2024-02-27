@@ -282,7 +282,6 @@ $transition-time: 2.3s;
 .index0 .position-test-title{
 	justify-content: end;
     align-items: center;
-    padding-right: 5%;
 }
 
 .groupTest-right .index1{
@@ -474,9 +473,12 @@ $transition-time: 2.3s;
 		clip-path: polygon(0% 0%, 0% 100%, 37% 100%, 152% 0%);
 	}
 	.index0 .position-test-title {
-		justify-content: start;
-		align-items: center;
-		margin-left: 5%;
+		width: 100%;
+		padding: 0;
+		margin: 3% 0 0 0;
+		align-items: start;
+		justify-content: center;
+		height: 115px;
 	}
 	.index1 .back-gray{
 		clip-path: polygon(100% 0%, 65% 0%, 5% 100%, 100% 100%);
@@ -496,6 +498,7 @@ $transition-time: 2.3s;
 		align-items: end;
 		justify-content: center;
 		height: 115px;
+		margin-bottom: 3%;
 	}
 	.index1 .test-title {
 		margin: 4.5rem 2vw 0 0;
@@ -543,11 +546,33 @@ $transition-time: 2.3s;
 	.index0 .back-gray,.index1 .back-gray{
 		clip-path: none;
 	}
+	.index0:hover .back-gray {
+		transform: translate(0, 0);
+		width: 100%;
+		height: 100%;
+		clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 152% 0%);
+	}
+	.index0 .position-test-title, .index1 .position-test-title {
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		background-color: black;
+		margin: 0;
+	}
+	.index0 .test-title {
+		margin-left: 0; 
+	}
 	.index1 .test-title-items{
 		justify-content: center;
 	}
 	.index1 .test-title{
 		margin: 50px 0 0 0;
+	}
+	.index1:hover .back-gray {
+		width: 100%;
+		height: 100%;
+		clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 152% 0%);
 	}
 	.index0 .back-gray,.index1 .back-gray,.index2 .back-gray,.index3 .back-gray,.index4 .back-gray,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
 		justify-content: center;
@@ -556,6 +581,9 @@ $transition-time: 2.3s;
 	}
 	.test-title{
 		margin-top: 50px;
+	}
+	.index0,.index1,.index2,.index3,.index4,.index5,.index6,.index7{
+		overflow: hidden;
 	}
 }
 
