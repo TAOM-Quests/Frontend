@@ -1,5 +1,6 @@
 export interface ITest {
   title: string;
+  description: string;
   tags: string[];
   group: string;
   difficult: string;
