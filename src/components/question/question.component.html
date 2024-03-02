@@ -25,4 +25,12 @@
             (next)="onNext()"
         />
     </ng-container>
+
+    <ng-container *ngIf="question.type === 'code'">
+        <tq-question-code
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
 </div>

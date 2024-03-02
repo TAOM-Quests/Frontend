@@ -1,10 +1,9 @@
 <div>
-    <ngx-monaco-editor
-        [options]="codeEditorOptions"
-        [(ngModel)]="code"
-        (init)="codeEditorInit($event)"
-    ></ngx-monaco-editor>
-    
+    <ngs-code-editor
+        [theme]="'vs-dark'"
+        [codeModel]="codeEditorOptions"
+    ></ngs-code-editor>
+
     <!-- <button
         *ngIf="!isAnswered"
         (click)="replyQuestion()"

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { MonacoEditorComponent, MonacoEditorConstructionOptions, MonacoStandaloneCodeEditor } from '@materia-ui/ngx-monaco-editor';
+import { CodeModel } from '@ngstack/code-editor';
 import { IQuestion } from 'src/models/test';
 
 @Component({
@@ -13,35 +12,19 @@ export class QuestionCodeComponent implements OnInit{
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  @ViewChild(MonacoEditorComponent, { static: false })
-  monacoComponent: MonacoEditorComponent;
-
   public code: string;
   public isAnswered: boolean;
-  public codeEditorOptions: MonacoEditorConstructionOptions;
+  public codeEditorOptions: CodeModel;
 
   private _codeResult: string;
-  private _modelUri: monaco.Uri;
-  private _reactiveGroup: FormGroup;
 
   public ngOnInit(): void {
     this.code = 'const example = "example"';
     this.codeEditorOptions = {
-      theme: 'vs-dark',
-      language: 'javascript',
+      language: this.question.language ?? 'javascript',
+      uri: 'main.json',
+      value: this.code,
     }
-
-    console.log(this.monacoComponent);
-    
-  }
-
-  public codeEditorInit(editor: MonacoStandaloneCodeEditor): void {
-    editor.setSelection({
-      startLineNumber: 1,
-      startColumn: 1,
-      endColumn: 50,
-      endLineNumber: 3
-    });
   }
 
   public replyQuestion(): void {

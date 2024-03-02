@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
-import { FormsModule } from '@angular/forms';
+import { CodeEditorModule } from '@ngstack/code-editor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CodeEditorModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
