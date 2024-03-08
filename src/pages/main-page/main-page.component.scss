@@ -5,7 +5,16 @@ $transition-time: 2.3s;
 *::after {
   box-sizing: border-box;
 }
-
+#banner {
+    height: 100vh;
+    background-image: url(..//..//assets/main-page/background-img.svg);
+    background-size: cover;
+	background-repeat: no-repeat;
+}
+#banner div{
+	background-color: rgba(0,0,0,.4);
+	height: 100vh;
+}
 .cover{
 	&:before{
 		content: '';
@@ -186,6 +195,12 @@ $transition-time: 2.3s;
 	}
 	.popularTest-title-left{
 		font-size: 4.3vw;
+	}
+	#banner h1{
+		font-size: 34px;
+	}
+	#banner p{
+		font-size: 20px;
 	}
 }
 @media (max-width: 400px) {
