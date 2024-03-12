@@ -1,43 +1,47 @@
-<div class="flex flex-col w-full h-svh justify-center items-center">
-    <ng-template
-        *ngIf="!isStarted"
-        [ngTemplateOutlet]="start"
-    />
+<div class="flex flex-col w-full min-h-screen justify-center items-center">
+    <div class="flex flex-col w-full bg-black min-h-screen h-full justify-center items-center">
+        <img class="w-full min-h-full h-auto object-cover fixed top-0 left-0 opacity-60" src="../../assets/tests/{{test.title}}.svg" alt="">
+        <div></div>
+        <ng-template
+            *ngIf="!isStarted"
+            [ngTemplateOutlet]="start"
+        />
 
-    <ng-template
-        *ngIf="isStarted && !isComplete"
-        [ngTemplateOutlet]="question"
-    />
+        <ng-template
+            *ngIf="isStarted && !isComplete"
+            [ngTemplateOutlet]="question"
+        />
 
-    <ng-template
-        *ngIf="isComplete"
-        [ngTemplateOutlet]="result"
-    />
+        <ng-template
+            *ngIf="isComplete"
+            [ngTemplateOutlet]="result"
+        />
+    </div>
 </div>
 
 <ng-template #start>
-    <div class="w-1/3 flex flex-col items-center text-center">
-        <div class="flex flex-row items-center justify-between w-3/4 m-3">
-            <p class="px-4 py-1 bg-red-400 border-2 rounded-full border-red-400 text-sm text-white"
+    <div class="w-1/3 max-xl:w-3/4 flex flex-col items-center text-center z-[3]">
+        <div class="flex flex-row items-center justify-center m-3 max-md:flex-wrap">
+            <p class="px-4 py-1 bg-white border-2 rounded-full font-semibold border-white text-sm text-black mx-2 max-md:m-3"
                 *ngFor="let tag of test.tags"
             >
                 {{ tag }}
             </p>
         </div>
 
-        <h1 class="text-5xl m-6">{{ test.title }} hi</h1>
-        <h2 class="text-xl m-3">{{ test.description }}</h2>
-        <button class="bg-red-400 px-8 py-2 m-3 text-xl text-white
-            border-2 rounded-full border-red-400"
+        <h1 class="text-5xl font-semibold text-white m-6">{{ test.title }}</h1>
+        <h2 class="text-xl m-3 text-white">{{ test.description }}</h2>
+        <button class="bg-white px-8 py-2 m-3 text-xl text-black
+            border-2 rounded-full font-semibold border-white"
             (click)="onStart()"
         >Начать квест</button>
     </div>
 </ng-template>
 
 <ng-template #question>
-    <div class="h-3/5 w-3/5 p-10
+    <div class="w-3/5 max-md:w-11/12 p-10 max-md:p-5 my-5
         flex flex-col justify-start items-center
-        border-2 border-green-300 rounded-3xl"
+        border-2 border-white bg-white rounded-3xl z-[3]"
     >
         <ng-container *ngFor="let question of test.questions; index as questionIndex">
             <tq-question
