@@ -7,7 +7,7 @@ import { IQuestion } from 'src/models/test';
   templateUrl: './question-code.component.html',
   styleUrls: ['./question-code.component.scss']
 })
-export class QuestionCodeComponent implements OnInit{
+export class QuestionCodeComponent implements OnInit {
   @Input() question: IQuestion;
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
