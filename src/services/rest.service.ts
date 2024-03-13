@@ -34,4 +34,7 @@ export class RestService {
     return this._httpClient.post(`${this._serverURL}${collectionName}/create`, objectToCreate);
   }
 
+  public compileCode(language: string, code: string): Observable<string> {
+    return this._httpClient.post(`${this._serverURL}compiler/execute`, {language, code}) as Observable<string>;
+  }
 }

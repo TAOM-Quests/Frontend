@@ -4,12 +4,17 @@
         [codeModel]="codeEditorOptions"
     ></ngs-code-editor>
 
-    <!-- <button
+    <div *ngIf="codeResult">
+        <p>Результат:</p>
+        <p>{{ codeResult }}</p>
+    </div>
+
+    <button
         *ngIf="!isAnswered"
         (click)="replyQuestion()"
     >Ответить</button>
     <button 
         *ngIf="isAnswered" 
         (click)="completeQuestion()"
-    >Следующий</button> -->
+    >Следующий</button>
 </div>
