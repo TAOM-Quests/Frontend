@@ -2,9 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITest } from 'src/models/test';
 import { TestsService } from 'src/services/tests.service';
-// import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
+import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
 
-// SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
+SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
 @Component({
   selector: 'main-page',
