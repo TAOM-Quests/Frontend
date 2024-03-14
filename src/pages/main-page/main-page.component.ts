@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { take } from 'rxjs';
+import { Router } from '@angular/router';
 import { ITest } from 'src/models/test';
 import { TestsService } from 'src/services/tests.service';
 import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
@@ -14,7 +14,8 @@ SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 })
 export class MainPageComponent implements OnInit {
   constructor(
-    private _testsService: TestsService
+    private _router: Router,
+    private _testsService: TestsService,
   ) {}
 
   public tests: ITest[];
@@ -36,5 +37,9 @@ export class MainPageComponent implements OnInit {
     const result: ITest[] | undefined[] = Array(8).fill(undefined).map((nothing, i) => testsGroup[i]);
 
     return result;
+  }
+
+  public navigateOnTest(test: ITest): void {
+    this._router.navigate([`test?id=${test._id}`]);
   }
 }

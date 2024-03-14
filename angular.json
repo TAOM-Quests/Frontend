@@ -64,15 +64,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "tq-frontend:build",
+            "browserTarget": "tq-frontend:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "buildTarget": "tq-frontend:build:production"
+              "browserTarget": "tq-frontend:build:production"
             },
             "development": {
-              "buildTarget": "tq-frontend:build:development"
+              "browserTarget": "tq-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "tq-frontend:build"
+            "browserTarget": "tq-frontend:build"
           }
         },
         "test": {
