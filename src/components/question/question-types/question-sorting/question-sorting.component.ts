@@ -1,4 +1,4 @@
-import { CdkDragDrop, CdkDragEnter, CdkDragExit,moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IQuestion } from 'src/models/test';
 
@@ -7,7 +7,7 @@ import { IQuestion } from 'src/models/test';
   templateUrl: './question-sorting.component.html',
   styleUrls: ['./question-sorting.component.scss'],
 })
-export class QuestionSortingComponent implements OnInit{
+export class QuestionSortingComponent implements OnInit {
   @Input() question:IQuestion;
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -54,7 +54,7 @@ export class QuestionSortingComponent implements OnInit{
   public completeQuestion(): void {
     this.next.emit();
   }
-  
+
   public isCorrectAnswer(boxName: string, answer: string): boolean {
     const boxAnswers: string[] | undefined = this.question.correctAnswer
       ?.find(correctBox => correctBox.split(':')[0] === boxName)
@@ -75,7 +75,7 @@ export class QuestionSortingComponent implements OnInit{
         })
       });
   }
-  
+
   private _prepareAnswers(): void {
     this.answers = this.question.answers
       .filter(answer => answer.split(':')[0] === 'answer')
@@ -97,5 +97,5 @@ export class QuestionSortingComponent implements OnInit{
 
         this._rightFormedAnswer.push(formedAnswer);
       })
-  }  
+  }
 }
