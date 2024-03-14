@@ -102,7 +102,7 @@
             />
         </ng-container>
         <div class="slider-effectCoverflow absolute invisible max-sm:relative max-sm:visible h-0 w-0">
-            <swiper
+            <!-- <swiper
                 [effect]="'coverflow'"
                 [grabCursor]="true"
                 [centeredSlides]="true"
@@ -130,7 +130,7 @@
                         />
                     </ng-template>
                 </ng-container>
-            </swiper>
+            </swiper> -->
         </div>
     </div>
 </ng-template>
@@ -138,6 +138,7 @@
 
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
+    <button (click)="navigateOnTest(test)">
     <div class=" flex relative
                 w-full h-full
                 rounded-md
@@ -174,9 +175,10 @@
                         ">
                     Hello! {{test.title}}   yguy gi iygi  gi  fsgi iygi  gi gigi     </p>
                     </div>
-        </div>
+            </div>
         </div>
     </div>
+    </button>
 </ng-template>
 
 <ng-template #emptyGroupItem>

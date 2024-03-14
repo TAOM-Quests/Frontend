@@ -2,9 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITest } from 'src/models/test';
 import { TestsService } from 'src/services/tests.service';
-import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
+// import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
+// SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
 @Component({
   selector: 'main-page',
@@ -40,6 +40,6 @@ export class MainPageComponent implements OnInit {
   }
 
   public navigateOnTest(test: ITest): void {
-    this._router.navigate([`test?id=${test._id}`]);
+    this._router.navigate(['test'], { queryParams: { id: test._id } });
   }
 }
