@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TAOM-Quests-Frontend": {
+    "tq-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "tq",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TAOM-Quests-Frontend",
+            "outputPath": "dist/tq-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -64,15 +64,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TAOM-Quests-Frontend:build",
+            "buildTarget": "tq-frontend:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TAOM-Quests-Frontend:build:production"
+              "buildTarget": "tq-frontend:build:production"
             },
             "development": {
-              "browserTarget": "TAOM-Quests-Frontend:build:development"
+              "buildTarget": "tq-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TAOM-Quests-Frontend:build"
+            "buildTarget": "tq-frontend:build"
           }
         },
         "test": {

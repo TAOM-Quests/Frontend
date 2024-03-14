@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'tq-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  constructor (
+    private _router: Router,
+  ) {}
+  
+  public navigateOnPage(): void {
+    this._router.navigate(['about-us']);
+  }
 }
