@@ -1,6 +1,7 @@
 export interface ITest {
   _id: string,
   title: string;
+  description: string;
   tags: string[];
   group: string;
   difficult: string;
@@ -8,16 +9,24 @@ export interface ITest {
   questions: IQuestion[];
 }
 
+export interface ITestDTO {
+  title: string;
+  tags: string[];
+  group: string;
+  difficult: string;
+}
+
 interface IResult {
   title: string;
   description: string;
 }
 
-interface IQuestion {
+export interface IQuestion {
   text: string;
   type: QuestionType;
   answers: string[];
-  correctAnswer?: string;
+  correctAnswer?: string[];
+  language?: string; 
 }
 
-type QuestionType = 'one' | 'many';
+type QuestionType = 'one' | 'many' | 'sorting' | 'code';

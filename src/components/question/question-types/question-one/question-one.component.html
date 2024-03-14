@@ -1,0 +1,24 @@
+<div class="w-full flex flex-col">
+    <div class="w-full flex flex-row flex-wrap"
+    >
+        <button class="w-[49%] px-2 py-4 my-2 mx-1 text-left
+            border-2 border-solid border-black rounded-xl"  
+            *ngFor="let answer of question.answers"   
+            [ngClass]="{
+                'selected': isSelectedAnswer(answer),
+                'correct': isAnswered && isCorrectAnswer(answer),
+                'wrong': isAnswered && isWrongAnswer(answer),
+            }"
+            (click)="chooseAnswer(answer)"
+        >{{ answer }}</button>
+    </div>
+    
+    <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
+</div>

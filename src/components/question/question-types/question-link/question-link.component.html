@@ -1,0 +1,12 @@
+<div cdkDropList>
+    
+    
+    <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
+</div>

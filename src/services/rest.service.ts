@@ -22,7 +22,19 @@ export class RestService {
     return this._httpClient.get(`${this._serverURL}${collectionName}`);
   }
 
+  public getByID(collectionName: string, id: string): Observable<object> {
+    return this._httpClient.get(`${this._serverURL}${collectionName}/${id}`);
+  }
+
   public getByParams(collectionName: string, params: ISearch): Observable<object> {
     return this._httpClient.post(`${this._serverURL}${collectionName}`, params);
+  }
+
+  public create(collectionName: string, objectToCreate: object): Observable<object> {
+    return this._httpClient.post(`${this._serverURL}${collectionName}/create`, objectToCreate);
+  }
+
+  public compileCode(language: string, code: string): Observable<string> {
+    return this._httpClient.post(`${this._serverURL}compiler/execute`, {language, code}) as Observable<string>;
   }
 }

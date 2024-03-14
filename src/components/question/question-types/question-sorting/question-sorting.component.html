@@ -1,0 +1,47 @@
+<div cdkDropListGroup>
+    <div 
+        *ngFor="let box of boxes"        
+        cdkDropList
+        [cdkDropListData]="box.data"
+        (cdkDropListEntered)="enableBoxSelectingStyle($event)"
+        (cdkDropListExited)="disableBoxSelectingStyle($event)"
+        (cdkDropListDropped)="moveAnswerToBox($event)"
+        >
+        <h2>{{ box.name }}</h2>
+
+        <div
+            *ngFor="let boxItem of box.data"
+            cdkDrag
+            [cdkDragDisabled]="isAnswered"
+            [ngClass]="{
+                'correct': isAnswered && isCorrectAnswer(box.name, boxItem),
+                'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
+            }"
+        >{{ boxItem }}</div>
+    </div>
+
+    <div>
+        <h2>Не распределено</h2>
+
+        <div
+            cdkDropList
+            [cdkDropListData]="answers"
+            (cdkDropListDropped)="moveAnswerToBox($event)"
+        >
+            <div
+                *ngFor="let answer of answers"
+                cdkDrag
+                [cdkDragDisabled]="isAnswered"
+            >{{ answer }}</div>
+        </div>
+    </div>
+
+    <button
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
+</div>

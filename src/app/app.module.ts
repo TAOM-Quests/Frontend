@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedComponentsModule } from 'src/components/shared-components.module';
+import { CodeEditorModule } from '@ngstack/code-editor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { SharedComponentsModule } from 'src/components/shared-components.module'
     AppRoutingModule,
     HttpClientModule,
     SharedComponentsModule,
+    CodeEditorModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
