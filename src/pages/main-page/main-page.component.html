@@ -42,12 +42,10 @@
 </div>
 
 <ng-template #popularTestItem let-popularTest="popularTest">
-    <button (click)="navigateOnTest(popularTest)">
-        <div class=" flex relative
-            w-1/5 max-lg:w-3/5 pb-[18.5%] max-lg:pb-[80px] max-md:w-[69vw] 
-            mx-6 max-lg:mx-0 max-lg:my-1 
-                    overflow-hidden rounded-xl
-                    cardPopularTest">
+    <button class="flex relative
+                    w-1/5 max-lg:w-3/5 pb-[18.5%] max-lg:pb-[80px] max-md:w-[69vw] 
+                    mx-6 max-lg:mx-0 max-lg:my-1 overflow-hidden rounded-xl
+                    cardPopularTest" (click)="navigateOnTest(popularTest)">
             <div class="flex absolute max-lg:items-center max-lg:justify-center
                         w-full h-full
                         border-white border-2 cover ">
@@ -82,7 +80,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </button>
 </ng-template>
 
@@ -138,11 +135,8 @@
 
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
-    <button (click)="navigateOnTest(test)">
-    <div class=" flex relative
-                w-full h-full
-                rounded-md
-                index{{index}}">
+    <button class="flex relative w-full h-full rounded-md
+                    index{{index}}" (click)="navigateOnTest(test)">
         <div class="flex absolute overflow-hidden
                     w-full h-full rounded-md
                     back-gray">
@@ -177,7 +171,6 @@
                     </div>
             </div>
         </div>
-    </div>
     </button>
 </ng-template>
 
