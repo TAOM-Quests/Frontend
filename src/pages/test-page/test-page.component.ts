@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IResult } from 'src/models/result';
 import { ITest } from 'src/models/test';
 import { TestsService } from 'src/services/tests.service';
+import { LoadingService } from 'src/services/loading.service';
 
 @Component({
   selector: 'app-test-page',
@@ -15,7 +16,9 @@ export class TestPageComponent implements OnInit {
   constructor(
     private _testsService: TestsService,
     private _activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private dom: Document
+    private _loadingService: LoadingService,
+    @Inject(DOCUMENT)
+    private dom: Document,
   ) {
     this.dom.body.scrollTop = 0;
     this.dom.documentElement.scrollTop = 0;
@@ -28,6 +31,7 @@ export class TestPageComponent implements OnInit {
   private _testID: string;
 
   public ngOnInit(): void {
+    this._loadingService.startGlobalLoading();
     this._activatedRoute.queryParams
       .subscribe(params => {
         this._testID = params['id'];
@@ -36,6 +40,7 @@ export class TestPageComponent implements OnInit {
       .subscribe(
         (test: ITest) => {
           this.test = test;
+          this._loadingService.finishGlobalLoading();
         }
       )
   }

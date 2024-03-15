@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITest } from 'src/models/test';
+import { LoadingService } from 'src/services/loading.service';
 import { TestsService } from 'src/services/tests.service';
 import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
 
@@ -16,19 +17,22 @@ export class MainPageComponent implements OnInit {
   constructor(
     private _router: Router,
     private _testsService: TestsService,
+    private _loadingService: LoadingService,
   ) {}
 
   public tests: ITest[];
-  public popularTests: ITest[];
   public groups: Set<string>;
+  public popularTests: ITest[];
 
   public ngOnInit() {
+    this._loadingService.startGlobalLoading();
     this._testsService.getAll()
       .subscribe(
         (tests: ITest[]) => {
           this.tests = tests;
           this.popularTests = this.tests.slice(0, 3);
           this.groups = new Set<string>(this.tests.map(test => test.group));
+          this._loadingService.finishGlobalLoading();
         });
   }
 

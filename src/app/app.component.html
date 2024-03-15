@@ -1,3 +1,9 @@
-<tq-header></tq-header>
-<router-outlet></router-outlet>
-<tq-footer></tq-footer>
+<tq-loading
+    *ngIf="(isGlobalLoading | async) === true"
+></tq-loading>
+
+<div [ngClass]="{'hidden': (isGlobalLoading | async) === true}">
+    <tq-header></tq-header>
+    <router-outlet></router-outlet>
+    <tq-footer></tq-footer>
+</div>

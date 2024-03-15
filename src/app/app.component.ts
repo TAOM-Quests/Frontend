@@ -1,9 +1,16 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { RestService } from 'src/services/rest.service';
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { LoadingService } from 'src/services/loading.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(
+    private _loadingService: LoadingService
+  ) {}
+
+  public isGlobalLoading: BehaviorSubject<boolean> = this._loadingService.isGLobalLoading;
+}

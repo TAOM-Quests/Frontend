@@ -5,6 +5,7 @@ import { SwiperModule } from 'swiper/angular';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { TestPageComponent } from './test-page/test-page.component';
 import { QuestionModule } from 'src/components/question/question.module';
+import { SharedComponentsModule } from 'src/components/shared-components.module';
 //npm i swiper@8.4.7
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuestionModule } from 'src/components/question/question.module';
     CommonModule,
     QuestionModule,
     SwiperModule,
+    SharedComponentsModule,
   ],
   exports: [
     MainPageComponent,

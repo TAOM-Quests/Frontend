@@ -7,9 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RestService {
-  private _serverURL: string = 'http://localhost:7777/api/';
-
   private _serverHostName: string;
+  private _serverURL: string = 'http://localhost:7777/api/';
 
   constructor(private _httpClient: HttpClient) {}
 
@@ -35,6 +34,6 @@ export class RestService {
   }
 
   public compileCode(language: string, code: string): Observable<string> {
-    return this._httpClient.post(`${this._serverURL}compiler/execute`, {language, code}) as Observable<string>;
+    return this._httpClient.post(`${this._serverURL}compiler/execute`, { language, code }) as Observable<string>;
   }
 }
