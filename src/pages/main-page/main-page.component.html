@@ -52,7 +52,7 @@
                 <div class="flex items-center justify-center absolute 
                             w-full h-full 
                             overflow-hidden">
-                    <img class="w-auto w-full h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
+                    <img class="w-full h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
                 </div>
                 <img class="absolute 
                             w-11 h-11 max-lg:w-9 max-lg:h-9
@@ -76,7 +76,7 @@
                                 max-[400px]:mb-[5vw] max-md:mb-[3.5vw] max-lg:mb-[2.8vw] cardPopularTest-back">
                         <p class="lg:max-w-[155px] 2xl:max-w-[222px]
                                 max-lg:text-lg text-white max-lg:text-start text-center 2xl:text-lg lg:text-sm font-serif">
-                            Hello! {{popularTest.title}} </p>
+                            {{ popularTest.description }}</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
             <div class="flex items-center justify-center absolute 
                             w-full h-full 
                             overflow-hidden">
-                    <img class="w-auto w-full h-full object-cover z-[1] rounded-md test-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
+                    <img class="w-full h-full object-cover z-[1] rounded-md test-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
             </div>
             <div class="flex justify-end items-end test-title-items">
                 <div class="flex flex-col justify-center items-center max-w-[260px] test-title">
@@ -167,7 +167,7 @@
                         <p class="text-white text-xl font-serif text-center max-xl:text-base
                         max-w-[222px] max-2xl:max-w-[180px] max-xl:max-w-[135px] max-h-full py-3 max-lg:max-w-[80%] max-lg:p-0 max-lg:my-auto
                         ">
-                    Hello! {{test.title}}   yguy gi iygi  gi  fsgi iygi  gi gigi     </p>
+                    {{test.description}}</p>
                     </div>
             </div>
         </div>
