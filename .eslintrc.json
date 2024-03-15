@@ -20,6 +20,7 @@
       ],
       "plugins": [
         "import",
+        "simple-import-sort",
         "@stylistic/eslint-plugin-js"
       ],
       "rules": {
@@ -39,6 +40,10 @@
             "style": "kebab-case"
           }
         ],
+
+        //sort-import
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
 
         // typescript rules
         "@typescript-eslint/no-explicit-any": "off",
