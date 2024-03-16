@@ -14,6 +14,14 @@ export class QuestionOneComponent {
   public chosenAnswer: string;
   public isAnswered: boolean;
 
+  public getAnswerText(answer: string): string {
+    return answer.split('@img=')[0];
+  }
+
+  public getAnswerImages(answer: string): string[] {
+    return answer.split('@img=').slice(1);
+  }
+
   public chooseAnswer(answer: string): void {
     this.chosenAnswer = answer;
   }
