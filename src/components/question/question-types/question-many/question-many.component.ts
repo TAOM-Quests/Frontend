@@ -19,10 +19,12 @@ export class QuestionManyComponent implements OnInit {
   }
 
   public chooseAnswer(answer: string): void {
-    if (this.isSelectedAnswer(answer)) {
-      this._unmarkAnswer(answer);
-    } else {
-      this._markAnswer(answer);
+    if (!this.isAnswered) {
+      if (this.isSelectedAnswer(answer)) {
+        this._unmarkAnswer(answer);
+      } else {
+        this._markAnswer(answer);
+      }
     }
   }
 
