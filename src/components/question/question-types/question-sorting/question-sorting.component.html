@@ -7,7 +7,7 @@
              (cdkDropListEntered)="enableBoxSelectingStyle($event)"
              (cdkDropListExited)="disableBoxSelectingStyle($event)"
              (cdkDropListDropped)="moveAnswerToBox($event)"
-            >
+        >
             <h2 class="text-center font-semibold bg-white">{{ box.name }}</h2>
             <div class="flex flex-row flex-wrap justify-center items-stretch">
                 <div class="flex items-center w-25 bg-gray-100 rounded-xl shadow-box p-4 m-2"
@@ -21,7 +21,7 @@
                 >
                     <div class="w-max">
                         <img class="w-20" *ngFor="let image of getAnswerImages(boxItem)" 
-                            src="../../assets/tests/{{ image }}.svg" alt=""
+                             src="../../assets/tests/{{ image }}.svg" alt=""
                         >
                         {{ getAnswerText(boxItem) }}
                     </div>
