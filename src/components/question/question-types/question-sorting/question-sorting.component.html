@@ -38,7 +38,12 @@
                 *ngFor="let answer of answers"
                 cdkDrag
                 [cdkDragDisabled]="isAnswered"
-            >{{ answer }}</div>
+            >
+                <img *ngFor="let image of getAnswerImages(answer)" 
+                    src="../../assets/tests/{{ image }}.svg" alt=""
+                >
+                {{ getAnswerText(answer) }}
+            </div>
         </div>
     </div>
 
