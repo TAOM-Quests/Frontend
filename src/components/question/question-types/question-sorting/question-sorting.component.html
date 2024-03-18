@@ -7,10 +7,10 @@
              (cdkDropListEntered)="enableBoxSelectingStyle($event)"
              (cdkDropListExited)="disableBoxSelectingStyle($event)"
              (cdkDropListDropped)="moveAnswerToBox($event)"
-            >
+        >
             <h2 class="text-center font-semibold bg-white">{{ box.name }}</h2>
-            <div class="flex flex-row flex-wrap justify-center items-center">
-                <div class="h-max bg-gray-100 rounded-xl shadow-box p-4 m-2"
+            <div class="flex flex-row flex-wrap justify-center items-stretch">
+                <div class="flex items-center w-25 bg-gray-100 rounded-xl shadow-box p-4 m-2"
                      *ngFor="let boxItem of box.data"
                      cdkDrag
                      [cdkDragDisabled]="isAnswered"
@@ -19,10 +19,12 @@
                         'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
                      }"
                 >
-                    <img class="w-20" *ngFor="let image of getAnswerImages(boxItem)" 
-                         src="../../assets/tests/{{ image }}.svg" alt=""
-                    >
-                    {{ getAnswerText(boxItem) }}
+                    <div class="w-max">
+                        <img class="w-20" *ngFor="let image of getAnswerImages(boxItem)" 
+                             src="../../assets/tests/{{ image }}.svg" alt=""
+                        >
+                        {{ getAnswerText(boxItem) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,18 +32,18 @@
     <div class="flex flex-col justify-center items-center mt-5">
         <h2 class="text-center font-semibold">Не распределено</h2>
 
-        <div class="flex flex-wrap w-full justify-center items-center"
+        <div class="flex flex-wrap w-full justify-center items-stretch"
              cdkDropList
              [cdkDropListData]="answers"
              (cdkDropListDropped)="moveAnswerToBox($event)"
         >
-            <div class="bg-gray-300 rounded-xl shadow-box p-4 m-2"
+            <div class="flex items-center w-25 bg-gray-300 rounded-xl shadow-box p-4 m-2"
                  *ngFor="let answer of answers"
                  cdkDrag
                  [cdkDragDisabled]="isAnswered"
             >
                 <div class="w-max">
-                    <img class="w-64" *ngFor="let image of getAnswerImages(answer)" 
+                    <img class="w-[120px]" *ngFor="let image of getAnswerImages(answer)" 
                          src="../../assets/tests/{{ image }}.svg" alt=""
                     >
                     {{ getAnswerText(answer) }}
