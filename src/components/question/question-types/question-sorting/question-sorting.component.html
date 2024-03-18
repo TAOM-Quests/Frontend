@@ -1,6 +1,6 @@
 <div cdkDropListGroup>
     <div class="flex flex-row flex-wrap justify-center">
-        <div class="bg-gray-300 min-w-60 w-[25vw] max-w-72 min-h-60 h-[25vw] max-h-72 rounded-xl shadow-box m-5"
+        <div class="bg-gray-300 min-w-60 w-[25vw] max-w-72 min-h-60 h-min rounded-xl shadow-box m-5"
             *ngFor="let box of boxes"        
             cdkDropList
             [cdkDropListData]="box.data"
@@ -9,20 +9,21 @@
             (cdkDropListDropped)="moveAnswerToBox($event)"
             >
             <h2 class="text-center font-semibold bg-white">{{ box.name }}</h2>
-
-            <div class="w-min bg-gray-100 rounded-xl shadow-box p-4 m-2"
-                *ngFor="let boxItem of box.data"
-                cdkDrag
-                [cdkDragDisabled]="isAnswered"
-                [ngClass]="{
-                    'correct': isAnswered && isCorrectAnswer(box.name, boxItem),
-                    'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
-                }"
-            >
-                <img *ngFor="let image of getAnswerImages(boxItem)" 
+            <div class="flex flex-row flex-wrap justify-center items-center">
+                <div class="h-max bg-gray-100 rounded-xl shadow-box p-4 m-2"
+                    *ngFor="let boxItem of box.data"
+                    cdkDrag
+                    [cdkDragDisabled]="isAnswered"
+                    [ngClass]="{
+                        'correct': isAnswered && isCorrectAnswer(box.name, boxItem),
+                        'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
+                    }"
+                >
+                <img class="w-20" *ngFor="let image of getAnswerImages(boxItem)" 
                     src="../../assets/tests/{{ image }}.svg" alt=""
                 >
                 {{ getAnswerText(boxItem) }}
+                </div>
             </div>
         </div>
     </div>
@@ -34,15 +35,17 @@
             [cdkDropListData]="answers"
             (cdkDropListDropped)="moveAnswerToBox($event)"
         >
-            <div class="w-min bg-gray-300 rounded-xl shadow-box p-4 m-2"
+            <div class="bg-gray-300 rounded-xl shadow-box p-4 m-2"
                 *ngFor="let answer of answers"
                 cdkDrag
                 [cdkDragDisabled]="isAnswered"
             >
-                <img *ngFor="let image of getAnswerImages(answer)" 
-                    src="../../assets/tests/{{ image }}.svg" alt=""
-                >
-                {{ getAnswerText(answer) }}
+                <div class="w-max">
+                    <img class="w-64" *ngFor="let image of getAnswerImages(answer)" 
+                        src="../../assets/tests/{{ image }}.svg" alt=""
+                    >
+                    {{ getAnswerText(answer) }}
+                </div>
             </div>
         </div>
     </div>
