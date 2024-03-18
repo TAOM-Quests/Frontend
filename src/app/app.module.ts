@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedComponentsModule } from 'src/components/shared-components.module';
 import { CodeEditorModule } from '@ngstack/code-editor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,9 @@ import { CodeEditorModule } from '@ngstack/code-editor';
     SharedComponentsModule,
     CodeEditorModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

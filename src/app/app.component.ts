@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ImgModalService } from 'src/services/img-modal.service';
 import { LoadingService } from 'src/services/loading.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { LoadingService } from 'src/services/loading.service';
 })
 export class AppComponent {
   constructor(
-    private _loadingService: LoadingService
+    public imgModalService: ImgModalService,
+    private _loadingService: LoadingService,
   ) {}
 
   public isGlobalLoading: BehaviorSubject<boolean> = this._loadingService.isGLobalLoading;

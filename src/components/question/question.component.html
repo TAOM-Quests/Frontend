@@ -4,6 +4,7 @@
         <img class="w-5/12 min-w-64 m-3" *ngFor="let image of question.images" 
              src="../../assets/tests/{{image}}.svg" 
              alt=""
+             tqImgModal
         >
     </div>
     <ng-container *ngIf="question.type === 'one'">

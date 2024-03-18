@@ -1,3 +1,8 @@
+<tq-img-modal
+    *ngIf="imgModalService.isUsingModal"
+    [imgPath]="imgModalService.imgPath"
+></tq-img-modal>
+
 <tq-loading
     *ngIf="(isGlobalLoading | async) === true"
 ></tq-loading>
