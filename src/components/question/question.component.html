@@ -33,4 +33,12 @@
             (next)="onNext()"
         />
     </ng-container>
+
+    <ng-container *ngIf="question.type === 'free'">
+        <tq-question-free
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
 </div>

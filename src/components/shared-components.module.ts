@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionCodeComponent } from './question/question-types/question-code/question-code.component';
+import { QuestionFreeComponent } from './question/question-types/question-free/question-free.component';
 import { QuestionLinkComponent } from './question/question-types/question-link/question-link.component';
 import { QuestionManyComponent } from './question/question-types/question-many/question-many.component';
 import { QuestionMistakesComponent } from './question/question-types/question-mistakes/question-mistakes.component';
@@ -28,6 +29,7 @@ import { QuestionSortingComponent } from './question/question-types/question-sor
     QuestionCodeComponent,
     QuestionSortingComponent,
     QuestionMistakesComponent,
+    QuestionFreeComponent,
   ],
   imports: [
     CommonModule,

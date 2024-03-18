@@ -1,0 +1,26 @@
+<div class="w-full flex flex-col justify-center items-center">
+    <input type="text" 
+           placeholder="Ваш ответ..."
+           [(ngModel)]="answer"
+           [ngClass]="{'correct': isAnswered && isCorrectAnswer(),
+                       'wrong': isAnswered && !isCorrectAnswer() 
+                      }"
+    >
+
+    <span *ngIf="isAnswered && !isCorrectAnswer()">
+        Правильны{{ question.correctAnswer?.length === 1 ? 'й' : 'е' }} 
+        ответ{{ question.correctAnswer?.length === 1 ? '' : 'ы' }}: 
+        <p *ngFor="let correctAnswer of question.correctAnswer">{{ correctAnswer }}</p>
+    </span>
+    
+    <button class="w-1/4 bg-white px-8 py-2 m-3 text-xl text-black
+    border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
+        *ngIf="!isAnswered"
+        (click)="replyQuestion()"
+    >Ответить</button>
+    <button class="w-1/4 bg-white px-8 py-2 m-3 text-xl text-black
+    border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]" 
+        *ngIf="isAnswered" 
+        (click)="completeQuestion()"
+    >Следующий</button>
+</div>

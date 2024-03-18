@@ -26,7 +26,7 @@ export interface IQuestion {
   type: QuestionType;
   answers: string[];
   correctAnswer?: string[];
-  language?: string; 
+  language?: string;
 }
 
-type QuestionType = 'one' | 'many' | 'sorting' | 'code';
+type QuestionType = 'one' | 'many' | 'sorting' | 'code' | 'free';
