@@ -10,10 +10,10 @@
                       }"
     >
 
-    <span *ngIf="isAnswered && !isCorrectAnswer()">
+    <span class="italic text-gray-500 flex flex-row items-end flex-wrap justify-center" *ngIf="isAnswered && !isCorrectAnswer()">
         Правильны{{ question.correctAnswer?.length === 1 ? 'й' : 'е' }} 
         ответ{{ question.correctAnswer?.length === 1 ? '' : 'ы' }}: 
-        <p *ngFor="let correctAnswer of question.correctAnswer">{{ correctAnswer }}</p>
+        <p class="mx-2" *ngFor="let correctAnswer of question.correctAnswer">{{ correctAnswer }}</p>
     </span>
     
     <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
