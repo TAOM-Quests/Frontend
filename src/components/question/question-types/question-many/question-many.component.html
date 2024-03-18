@@ -11,7 +11,12 @@
                     'wrong': isAnswered && isWrongAnswer(answer),
                 }"
                 (click)="chooseAnswer(answer)"
-            >{{ answer }}</button>
+            >
+                <img *ngFor="let image of getAnswerImages(answer)" 
+                    src="../../assets/tests/{{ image }}.svg" alt=""
+                >
+                {{ getAnswerText(answer) }}
+            </button>
         </ng-container>
     </div>
     

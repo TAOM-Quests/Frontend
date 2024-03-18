@@ -18,7 +18,12 @@
                     'correct': isAnswered && isCorrectAnswer(box.name, boxItem),
                     'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
                 }"
-            >{{ boxItem }}</div>
+            >
+                <img *ngFor="let image of getAnswerImages(boxItem)" 
+                    src="../../assets/tests/{{ image }}.svg" alt=""
+                >
+                {{ getAnswerText(boxItem) }}
+            </div>
         </div>
     </div>
     <div class="flex flex-col justify-center items-center mt-5">

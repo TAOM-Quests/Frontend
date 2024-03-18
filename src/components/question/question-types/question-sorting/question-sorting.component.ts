@@ -1,6 +1,7 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IQuestion } from 'src/models/test';
+import { QuestionService } from 'src/services/question.service';
 
 @Component({
   selector: 'tq-question-sorting',
@@ -12,6 +13,10 @@ export class QuestionSortingComponent implements OnInit {
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  constructor(
+    private _questionService: QuestionService,
+  ) {}
+
   public isAnswered: boolean;
   public boxes: { name: string, data: string[] }[];
   public answers: string[];
@@ -20,6 +25,14 @@ export class QuestionSortingComponent implements OnInit {
   public ngOnInit(): void {
     this._prepareBoxes();
     this._prepareAnswers();
+  }
+
+  public getAnswerText(answer: string): string {
+    return this._questionService.getAnswerText(answer);
+  }
+
+  public getAnswerImages(answer: string): string[] {
+    return this._questionService.getAnswerImages(answer);
   }
 
   public moveAnswerToBox(event: CdkDragDrop<string[]>) {
