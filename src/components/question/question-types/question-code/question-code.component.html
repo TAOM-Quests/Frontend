@@ -1,5 +1,5 @@
-<div>
-    <ngs-code-editor
+<div class="w-full flex flex-col justify-center items-center">
+    <ngs-code-editor class="w-full"
         [theme]="'vs-dark'"
         [codeModel]="codeEditorOptions"
     ></ngs-code-editor>
@@ -9,11 +9,12 @@
         <p>{{ codeResult }}</p>
     </div>
 
-    <button
+    <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
+    border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
         *ngIf="!isAnswered"
         (click)="replyQuestion()"
     >Ответить</button>
-    <button class="w-1/4 bg-white px-8 py-2 m-3 text-xl text-black
+    <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
     border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
         *ngIf="isAnswered" 
         (click)="completeQuestion()"
