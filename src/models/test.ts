@@ -25,9 +25,9 @@ export interface IQuestion {
   text: string;
   type: QuestionType;
   answers: string[];
-  correctAnswer?: string[];
   images?: string[];
   language?: string;
+  correctAnswer?: string[];
 }
 
 type QuestionType = 'one' | 'many' | 'sorting' | 'code';
