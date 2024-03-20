@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IQuestion } from 'src/models/test';
+import { QuestionService } from 'src/services/question.service';
 
 @Component({
   selector: 'tq-question-many',
@@ -11,11 +12,23 @@ export class QuestionManyComponent implements OnInit {
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  constructor(
+    private _questionService: QuestionService,
+  ) {}
+
   public isAnswered: boolean;
   public chosenAnswers: string[];
 
   public ngOnInit(): void {
     this.chosenAnswers = [];
+  }
+
+  public getAnswerText(answer: string): string {
+    return this._questionService.getAnswerText(answer);
+  }
+
+  public getAnswerImages(answer: string): string[] {
+    return this._questionService.getAnswerImages(answer);
   }
 
   public chooseAnswer(answer: string): void {

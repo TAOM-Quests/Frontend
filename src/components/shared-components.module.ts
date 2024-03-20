@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CodeEditorModule } from '@ngstack/code-editor';
+import { ImgModalDirective } from 'src/directives/img-modal.directive';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ImgModalComponent } from './img-modal/img-modal.component';
 import { LoadingComponent } from './loading/loading.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionCodeComponent } from './question/question-types/question-code/question-code.component';
@@ -22,6 +24,7 @@ import { QuestionSortingComponent } from './question/question-types/question-sor
     HeaderComponent,
     FooterComponent,
     LoadingComponent,
+    ImgModalComponent,
     QuestionComponent,
     QuestionOneComponent,
     QuestionManyComponent,
@@ -34,6 +37,7 @@ import { QuestionSortingComponent } from './question/question-types/question-sor
     DragDropModule,
     FormsModule,
     BrowserModule,
+    ImgModalDirective,
     QuestionLinkComponent,
     CodeEditorModule.forChild(),
   ],
@@ -41,6 +45,7 @@ import { QuestionSortingComponent } from './question/question-types/question-sor
     HeaderComponent,
     FooterComponent,
     LoadingComponent,
+    ImgModalComponent,
     QuestionComponent,
   ]
 })

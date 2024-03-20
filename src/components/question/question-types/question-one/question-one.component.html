@@ -2,26 +2,33 @@
     <div class="w-full flex flex-row flex-wrap max-[1470px]:items-center max-[1470px]:justify-center"
     >
         <button class="w-[49%] px-4 py-4 my-2 mx-1 text-xl text-left max-[1470px]:w-[400px]
-            border-2 border-solid border-black rounded-xl hover:bg-gray-300 hover:border-gray-300 
-            shadow-box"  
-            *ngFor="let answer of question.answers"   
-            [ngClass]="{
-                'selected': isSelectedAnswer(answer),
-                'correct': isAnswered && isCorrectAnswer(answer),
-                'wrong': isAnswered && isWrongAnswer(answer),
-            }"
-            (click)="chooseAnswer(answer)"
-        >{{ answer }}</button>
+                    border-2 border-solid border-black rounded-xl hover:bg-gray-300 hover:border-gray-300 
+                    shadow-box"  
+                *ngFor="let answer of question.answers"   
+                [ngClass]="{
+                    'selected': isSelectedAnswer(answer),
+                    'correct': isAnswered && isCorrectAnswer(answer),
+                    'wrong': isAnswered && isWrongAnswer(answer),
+                }"
+                (click)="chooseAnswer(answer)"
+        >
+            <img *ngFor="let image of getAnswerImages(answer)" 
+                 alt=""
+                 tqImgModal
+                 src="../../assets/tests/{{ image }}.svg" 
+            >
+            {{ getAnswerText(answer) }}
+        </button>
     </div>
     
-    <button class="w-1/4 bg-white px-8 py-2 m-3 text-xl text-black
-    border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
-        *ngIf="!isAnswered"
-        (click)="replyQuestion()"
+    <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
+                border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
+            *ngIf="!isAnswered"
+            (click)="replyQuestion()"
     >Ответить</button>
-    <button class="w-1/4 bg-white px-8 py-2 m-3 text-xl text-black
-    border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]" 
-        *ngIf="isAnswered" 
-        (click)="completeQuestion()"
+    <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
+                border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]" 
+            *ngIf="isAnswered" 
+            (click)="completeQuestion()"
     >Следующий</button>
 </div>

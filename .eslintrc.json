@@ -28,7 +28,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "tq",
             "style": "camelCase"
           }
         ],

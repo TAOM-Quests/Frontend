@@ -23,10 +23,11 @@ interface IResult {
 
 export interface IQuestion {
   text: string;
-  type: QuestionType;
   answers: string[];
+  type: QuestionType;
+  images?: string[];
+  language?: string;
   correctAnswer?: string[];
-  language?: string; 
 }
 
 type QuestionType = 'one' | 'many' | 'sorting' | 'code';

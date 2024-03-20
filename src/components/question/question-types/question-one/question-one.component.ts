@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IQuestion } from 'src/models/test';
+import { QuestionService } from 'src/services/question.service';
 
 @Component({
   selector: 'tq-question-one',
@@ -11,8 +12,20 @@ export class QuestionOneComponent {
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  constructor(
+    private _questionService: QuestionService,
+  ) {}
+
   public chosenAnswer: string;
   public isAnswered: boolean;
+
+  public getAnswerText(answer: string): string {
+    return this._questionService.getAnswerText(answer);
+  }
+
+  public getAnswerImages(answer: string): string[] {
+    return this._questionService.getAnswerImages(answer);
+  }
 
   public chooseAnswer(answer: string): void {
     if (!this.isAnswered) {
