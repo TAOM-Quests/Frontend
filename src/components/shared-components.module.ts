@@ -45,8 +45,8 @@ import { QuestionSortingComponent } from './question/question-types/question-sor
     HeaderComponent,
     FooterComponent,
     LoadingComponent,
-    QuestionComponent,
     ImgModalComponent,
+    QuestionComponent,
   ]
 })
 export class SharedComponentsModule { }

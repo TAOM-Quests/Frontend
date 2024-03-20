@@ -14,7 +14,5 @@ export class ImgModalDirective {
   public openImageOnModal(event: MouseEvent): void {
     this._imgModalService.imgPath = (event.target as HTMLImageElement).src;
     this._imgModalService.isUsingModal = true;
-
-    console.log(this._imgModalService.imgPath, this._imgModalService.isUsingModal);
   }
 }

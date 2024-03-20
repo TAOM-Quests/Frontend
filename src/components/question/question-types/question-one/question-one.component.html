@@ -13,7 +13,9 @@
                 (click)="chooseAnswer(answer)"
         >
             <img *ngFor="let image of getAnswerImages(answer)" 
-                src="../../assets/tests/{{ image }}.svg" alt=""
+                 alt=""
+                 tqImgModal
+                 src="../../assets/tests/{{ image }}.svg" 
             >
             {{ getAnswerText(answer) }}
         </button>

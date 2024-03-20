@@ -23,8 +23,8 @@ interface IResult {
 
 export interface IQuestion {
   text: string;
-  type: QuestionType;
   answers: string[];
+  type: QuestionType;
   images?: string[];
   language?: string;
   correctAnswer?: string[];
