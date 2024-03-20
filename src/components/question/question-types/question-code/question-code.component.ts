@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CodeModel } from '@ngstack/code-editor';
 import { IQuestion } from 'src/models/test';
 import { QuestionService } from 'src/services/question.service';
@@ -40,7 +40,7 @@ export class QuestionCodeComponent implements OnInit {
   }
 
   private _compileCode(): void {
-    this._questionService.compileCode(this.question.language ?? 'javascript',this.codeEditorOptions.value)
+    this._questionService.compileCode(this.question.language ?? 'javascript', this.codeEditorOptions.value)
       .subscribe((codeResult: string) => {
         this.codeResult = codeResult
 

@@ -1,6 +1,7 @@
 <div class="w-full flex flex-col justify-center items-center">
     <ngs-code-editor class="w-full"
                      [theme]="'vs-dark'"
+                     [readOnly]="isAnswered"
                      [codeModel]="codeEditorOptions"
     ></ngs-code-editor>
 

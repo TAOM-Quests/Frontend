@@ -28,7 +28,9 @@ export class QuestionOneComponent {
   }
 
   public chooseAnswer(answer: string): void {
-    this.chosenAnswer = answer;
+    if (!this.isAnswered) {
+      this.chosenAnswer = answer;
+    }
   }
 
   public replyQuestion(): void {
