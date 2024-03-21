@@ -93,9 +93,14 @@
         </div>
         <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
             <ng-container 
-                *ngIf="!!groupTest; else emptyGroupItem"
+                *ngIf="groupTest"
                 [ngTemplateOutlet]="filledGroupItem"
                 [ngTemplateOutletContext]="{test: groupTest, index: testIndex}"
+            />
+            <ng-container 
+                *ngIf="!groupTest"
+                [ngTemplateOutlet]="emptyGroupItem"
+                [ngTemplateOutletContext]="{index: testIndex}"
             />
         </ng-container>
         <div class="slider-effectCoverflow absolute invisible max-sm:relative max-sm:visible h-0 w-0">
@@ -136,26 +141,29 @@
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
     <button class="flex relative w-full h-full rounded-md
-                    index{{index}}" (click)="navigateOnTest(test)">
+                   index{{index}}" 
+            (click)="navigateOnTest(test)"
+    >
         <div class="flex absolute overflow-hidden
                     w-full h-full rounded-md
                     back-gray">
             <div class="flex items-center justify-center absolute 
-                            w-full h-full 
-                            overflow-hidden">
-                    <img class="w-full h-full object-cover z-[1] rounded-md test-img"  src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
+                        w-full h-full 
+                        overflow-hidden">
+                    <img class="w-full h-full object-cover z-[1] rounded-md test-img" src="../../assets/tests/{{test.title}}.svg" alt="{{test.title}}" />
             </div>
             <div class="flex justify-end items-end test-title-items">
                 <div class="flex flex-col justify-center items-center max-w-[260px] test-title">
                     <div class="flex flex-row h-8 justify-center items-center mb-2">
                         <div class="line"></div>
-                        <img class=" w-7 h-7
+                        <img class="w-7 h-7
                                     z-[2] mx-2
-                                    taom-logo"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
+                                    taom-logo" src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
                         <div class="line"></div>
                     </div>
-                    <div class=" z-[2]">
-                        <p class="font-serif text-white text-center text-2xl max-xl:text-xl ">{{test.title}}</p>
+                    <div class="z-[2]">
+                        <p class="font-serif text-white text-center text-2xl max-xl:text-xl"
+                        >{{test.title}}</p>
                     </div>
                 </div>
             </div>
@@ -165,14 +173,17 @@
                     test-title-items-back">
                     <div class="flex overflow-auto h-full w-[60%] position-test-title">
                         <p class="text-white text-xl font-serif text-center max-xl:text-base
-                        max-w-[222px] max-2xl:max-w-[180px] max-xl:max-w-[135px] max-h-full py-3 max-lg:max-w-[80%] max-lg:p-0 max-lg:my-auto
-                        ">
-                    {{test.description}}</p>
+                            max-w-[222px] max-2xl:max-w-[180px] max-xl:max-w-[135px] max-h-full py-3 max-lg:max-w-[80%] max-lg:p-0 max-lg:my-auto"
+                        >{{test.description}}</p>
                     </div>
             </div>
         </div>
     </button>
 </ng-template>
 
-<ng-template #emptyGroupItem>
+<ng-template #emptyGroupItem let-index="index">
+    <div class="flex relative w-full h-full rounded-md
+                   index{{index}}"
+    >
+    </div>
 </ng-template>
