@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ISearch } from 'src/models/search-params';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ISearch } from 'src/models/search-params';
 
 @Injectable({
   providedIn: 'root',
