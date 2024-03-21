@@ -1,9 +1,10 @@
 <div class="w-full">
-    <h1 class="text-3xl font-bold mb-5 text-center max-md:text-xl">{{ question.text }}</h1>
+    <h1 class="text-3xl font-bold mb-5 text-center max-md:text-xl">
+        {{ question.text }}
+    </h1>
 
     <ng-container *ngIf="question.type === 'one'">
         <tq-question-one
-            class="w-full"
             [question]="question"
             (reply)="onReply($event)"
             (next)="onNext()"
