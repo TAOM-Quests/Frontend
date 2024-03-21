@@ -9,7 +9,8 @@ import { QuestionService } from 'src/services/question.service';
   styleUrls: ['./question-sorting.component.scss'],
 })
 export class QuestionSortingComponent implements OnInit {
-  @Input() question:IQuestion;
+  @Input() maxCount: number;
+  @Input() question: IQuestion;
   @Output() next: EventEmitter<void> = new EventEmitter<void>();
   @Output() reply: EventEmitter<string[]> = new EventEmitter<string[]>();
 
@@ -36,17 +37,19 @@ export class QuestionSortingComponent implements OnInit {
   }
 
   public moveAnswerToBox(event: CdkDragDrop<string[]>) {
-    event.container.element.nativeElement.classList.remove('active-box');
+    if (event.container.data.length < this.maxCount) {
+      event.container.element.nativeElement.classList.remove('active-box');
 
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      )
+      if (event.previousContainer === event.container) {
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
+      } else {
+        transferArrayItem(
+          event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex,
+        )
+      }
     }
   }
 

@@ -27,6 +27,16 @@
 
     <ng-container *ngIf="question.type === 'sorting'">
         <tq-question-sorting
+            [maxCount]="999"
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'link'">
+        <tq-question-sorting
+            [maxCount]="1"
             [question]="question"
             (reply)="onReply($event)"
             (next)="onNext()"
