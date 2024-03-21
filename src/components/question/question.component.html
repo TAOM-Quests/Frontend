@@ -1,5 +1,7 @@
 <div class="w-full">
-    <h1 class="text-3xl font-bold mb-5 text-center max-md:text-xl">{{ question.text }}</h1>
+    <h1 class="text-3xl font-bold mb-5 text-center max-md:text-xl">
+        {{ question.text }}
+    </h1>
     <div class="flex flex-row flex-wrap w-full justify-center items-center">
         <img class="w-5/12 min-w-64 m-3" *ngFor="let image of question.images" 
              alt=""
@@ -9,7 +11,6 @@
     </div>
     <ng-container *ngIf="question.type === 'one'">
         <tq-question-one
-            class="w-full"
             [question]="question"
             (reply)="onReply($event)"
             (next)="onNext()"
@@ -34,6 +35,14 @@
 
     <ng-container *ngIf="question.type === 'code'">
         <tq-question-code
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'free'">
+        <tq-question-free
             [question]="question"
             (reply)="onReply($event)"
             (next)="onNext()"
