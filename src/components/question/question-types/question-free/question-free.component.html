@@ -13,8 +13,8 @@
     <span class="italic text-gray-500 flex flex-row items-end flex-wrap justify-center"
           *ngIf="isAnswered && !isCorrectAnswer()"
     >
-        Правильны{{ question.correctAnswer?.length === 1 ? 'й' : 'е' }} 
-        ответ{{ question.correctAnswer?.length === 1 ? '' : 'ы' }}: 
+        Правильны{{ question.correctAnswer.length === 1 ? 'й' : 'е' }} 
+        ответ{{ question.correctAnswer.length === 1 ? '' : 'ы' }}: 
         <p class="mx-2" *ngFor="let correctAnswer of question.correctAnswer">{{ correctAnswer }}</p>
     </span>
     

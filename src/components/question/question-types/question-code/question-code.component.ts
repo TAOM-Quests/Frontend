@@ -42,10 +42,7 @@ export class QuestionCodeComponent implements OnInit {
   private _compileCode(): void {
     this._questionService.compileCode(this.question.language ?? 'javascript', this.codeEditorOptions.value)
       .subscribe((codeResult: string) => {
-        this.codeResult = codeResult
-
-        console.log('codeResult', codeResult);
-        
+        this.codeResult = codeResult;
       })
   }
 }

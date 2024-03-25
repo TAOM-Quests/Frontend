@@ -57,5 +57,14 @@
 </ng-template>
 
 <ng-template #result>
-    Тип результат
+    <p class="px-4 py-1 bg-white border-2 rounded-full font-semibold border-white text-sm text-black mx-2 max-md:m-3 z-[2]"
+        *ngFor="let tag of test.tags"
+    >
+        {{ tag }}
+    </p>
+    <h2 class="text-5xl font-semibold text-white m-6 max-sm:text-3xl z-[2]">{{ correctAnswersCount }}/{{ test.questions.length }}</h2>
+    <button class="w-1/5 bg-white px-5 py-2 m-3 text-xl text-black z-[2]
+                border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]" 
+            (click)="navigateToMainPage()"
+    >Перейти к списку квестов</button>
 </ng-template>

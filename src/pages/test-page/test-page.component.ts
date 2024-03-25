@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IResult } from 'src/models/result';
 import { ITest } from 'src/models/test';
-import { TestsService } from 'src/services/tests.service';
 import { LoadingService } from 'src/services/loading.service';
+import { TestsService } from 'src/services/tests.service';
 
 @Component({
   selector: 'app-test-page',
@@ -14,6 +14,7 @@ import { LoadingService } from 'src/services/loading.service';
 })
 export class TestPageComponent implements OnInit {
   constructor(
+    private _router: Router,
     private _testsService: TestsService,
     private _activatedRoute: ActivatedRoute,
     private _loadingService: LoadingService,
@@ -27,6 +28,7 @@ export class TestPageComponent implements OnInit {
   public test: ITest;
   public isStarted: boolean;
   public isComplete: boolean;
+  public correctAnswersCount: number;
   public currentQuestionIndex: number;
   private _testID: string;
 
@@ -65,12 +67,17 @@ export class TestPageComponent implements OnInit {
     }
   }
 
+  public navigateToMainPage(): void {
+    this._router.navigate(['/']);
+  }
+
   private _isLastQuestion(questionIndex: number): boolean {
     return questionIndex === this.test.questions.length - 1;
   }
 
   private _completeTest(): Observable<IResult> {
+    this.correctAnswersCount = this._testsService.getCorrectAnswersCount();
+
     return this._testsService.saveResult();
   }
-
 }

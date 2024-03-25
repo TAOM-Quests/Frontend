@@ -49,7 +49,7 @@ export class QuestionOneComponent {
   }
 
   public isCorrectAnswer(answer: string): boolean {
-    return !!this.question.correctAnswer?.includes(answer);
+    return this._questionService.checkIsCorrectAnswer(this.question.type, [answer], this.question.correctAnswer);
   }
 
   public isWrongAnswer(answer: string): boolean {

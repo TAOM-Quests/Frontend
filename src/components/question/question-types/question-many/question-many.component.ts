@@ -57,7 +57,7 @@ export class QuestionManyComponent implements OnInit {
   }
 
   public isCorrectAnswer(answer: string): boolean {
-    return !!this.question.correctAnswer?.includes(answer);
+    return !!this.question.correctAnswer.includes(answer);
   }
 
   public isWrongAnswer(answer: string): boolean {

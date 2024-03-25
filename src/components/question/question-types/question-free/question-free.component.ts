@@ -26,6 +26,6 @@ export class QuestionFreeComponent {
   }
 
   public isCorrectAnswer(): boolean {
-    return !!this.question.correctAnswer?.includes(this.answer.trim());
+    return !!this.question.correctAnswer.includes(this.answer.trim());
   }
 }

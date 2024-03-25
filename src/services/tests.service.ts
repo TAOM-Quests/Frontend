@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-import { RestService } from './rest.service';
-import { ITest } from 'src/models/test';
 import { Observable } from 'rxjs';
 import { IAnswer, IResult } from 'src/models/result';
+import { ITest } from 'src/models/test';
+
+import { QuestionService } from './question.service';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestsService {
-  constructor(private _rest: RestService) {}
+  constructor(
+    private _rest: RestService,
+    private _questionService: QuestionService,
+    ) {}
 
   private _currentTest: ITest;
   private _userAnswers: IAnswer[];
@@ -37,5 +42,16 @@ export class TestsService {
 
   public addAnswer(answer: IAnswer): void {
     this._userAnswers.push(answer);
+  }
+
+  public getCorrectAnswersCount(): number {
+    let correctAnswers: number = 0;
+    this._currentTest.questions.forEach((question, index) => {
+      if (this._questionService.checkIsCorrectAnswer(question.type, this._userAnswers[index].answer, question.correctAnswer)) {
+        correctAnswers += 1;
+      }
+    })
+
+    return correctAnswers;
   }
 }
