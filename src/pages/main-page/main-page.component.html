@@ -10,6 +10,9 @@
     <div class="flex lg:flex-row justify-center max-lg:flex-col max-lg:items-center
                 w-10/12 max-xl:w-full"
     >
+    <div class="flex lg:flex-row justify-center max-lg:flex-col max-lg:items-center
+                w-10/12 max-xl:w-full"
+    >
         <ng-container 
             *ngFor="let popularTest of popularTests">
             <ng-container 
@@ -45,41 +48,42 @@
                    w-80 h-80 max-lg:w-3/5 max-lg:h-[80px] max-md:w-[69vw] 
                    mx-6 max-xl:mx-2 max-lg:mx-0 max-lg:my-1 overflow-hidden rounded-xl
                    cardPopularTest"
-            (click)="navigateOnTest(popularTest)">
-        <div class="flex absolute max-lg:items-center max-lg:justify-center
-                    w-full h-full
-                    border-white border-2 cover ">
-            <div class="flex items-center justify-center absolute 
-                        w-full h-full 
-                        overflow-hidden">
-                <img class="w-full h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
-            </div>
-            <img class="absolute 
-                        w-11 h-11 max-lg:w-9 max-lg:h-9
-                        top-6 max-lg:top-5 right-6
-                        taom-logo"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
-            <div class="flex max-lg:items-center max-lg:text-center max-lg:relative 
-                        max-lg:w-full max-lg:h-[50px]
-                        popularTest-title">
-                <p class="flex items-end max-lg:absolute
-                          text-2xl max-lg:text-center text-white font-semibold max-md:text-[3.5vw]
-                          mb-7 ml-7 mr-7 max-lg:m-0 max-lg:left-[50%]
-                          popularTest-title popularTest-title-left">
-                    {{ popularTest.title }}
-                </p>
-            </div>
-            <div class="flex absolute items-center justify-center max-lg:justify-start max-lg:items-end 
-                        w-full h-full max-lg:ml-[5rem] 
-                        cardPopularTest-back">  
-                <div class="flex absolute items-center justify-center max-lg:justify-start max-lg:items-start overflow-auto 
-                            max-lg:max-w-[85%] max-lg:max-h-[30%] w-full h-full max-[400px]:max-w-[75%] max-md:max-w-[80%]
-                            max-[400px]:mb-[5vw] max-md:mb-[3.5vw] max-lg:mb-[2.8vw] cardPopularTest-back">
-                    <p class="lg:max-w-[155px] 2xl:max-w-[222px]
-                            max-lg:text-lg text-white max-lg:text-start text-center 2xl:text-lg lg:text-sm font-serif">
-                        {{ popularTest.description }}</p>
+            (click)="navigateOnTest(popularTest)"
+        >
+            <div class="flex absolute max-lg:items-center max-lg:justify-center
+                        w-full h-full
+                        border-white border-2 cover ">
+                <div class="flex items-center justify-center absolute 
+                            w-full h-full 
+                            overflow-hidden">
+                    <img class="w-full h-full object-cover z-[1] popularTest-img"  src="../../assets/tests/{{popularTest.title}}.svg" alt="{{popularTest.title}}" />
+                </div>
+                <img class="absolute 
+                            w-11 h-11 max-lg:w-9 max-lg:h-9
+                            top-6 max-lg:top-5 right-6
+                            taom-logo"  src="../../assets/main-page/taom-logo.svg" alt="Логотип ТАУ" />
+                <div class="flex max-lg:items-center max-lg:text-center max-lg:relative 
+                            max-lg:w-full max-lg:h-[50px]
+                            popularTest-title">
+                    <p class="flex items-end max-lg:absolute
+                              text-2xl max-lg:text-center text-white font-semibold max-md:text-[3.5vw]
+                              mb-7 ml-7 mr-7 max-lg:m-0 max-lg:left-[50%]
+                              popularTest-title popularTest-title-left">
+                        {{ popularTest.title }}
+                    </p>
+                </div>
+                <div class="flex absolute items-center justify-center max-lg:justify-start max-lg:items-end 
+                            w-full h-full max-lg:ml-[5rem] 
+                            cardPopularTest-back">  
+                    <div class="flex absolute items-center justify-center max-lg:justify-start max-lg:items-start overflow-auto 
+                                max-lg:max-w-[85%] max-lg:max-h-[30%] w-full h-full max-[400px]:max-w-[75%] max-md:max-w-[80%]
+                                max-[400px]:mb-[5vw] max-md:mb-[3.5vw] max-lg:mb-[2.8vw] cardPopularTest-back">
+                        <p class="lg:max-w-[155px] 2xl:max-w-[222px]
+                                max-lg:text-lg text-white max-lg:text-start text-center 2xl:text-lg lg:text-sm font-serif">
+                            {{ popularTest.description }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
     </button>
 </ng-template>
 
@@ -141,7 +145,7 @@
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
     <button class="flex relative w-full h-full rounded-md
-                   index{{index}}" 
+                   index-{{index}}-of-test-in-group" 
             (click)="navigateOnTest(test)"
     >
         <div class="flex absolute overflow-hidden
@@ -183,7 +187,7 @@
 
 <ng-template #emptyGroupItem let-index="index">
     <div class="flex relative w-full h-full rounded-md
-                   index{{index}}"
+                index-{{index}}-of-test-in-group"
     >
     </div>
 </ng-template>

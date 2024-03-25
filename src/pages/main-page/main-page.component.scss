@@ -5,16 +5,19 @@ $transition-time: 2.3s;
 *::after {
   box-sizing: border-box;
 }
+
 #banner {
     height: 100vh;
     background-image: url(..//..//assets/main-page/background-img.svg);
     background-size: cover;
 	background-repeat: no-repeat;
 }
+
 #banner div{
 	background-color: rgba(0,0,0,.4);
 	height: 100vh;
 }
+
 .cover{
 	&:before{
 		content: '';
@@ -27,6 +30,7 @@ $transition-time: 2.3s;
 		bottom:15px;
 		z-index: 2;
 	}
+
 	&:after{
 		content: '';
 		position: absolute;
@@ -37,20 +41,26 @@ $transition-time: 2.3s;
 		z-index: 2;
 		background: rgba(0,0,0,.4);
 	}
+
 	.popularTest-title{
 		z-index:3;
 	}
+
 	.taom-logo{
 		z-index:4;
 	}
+
 }
+
 .cardPopularTest-back{
 	background: #0b0f08;
 	p{
 		background: transparent;
 		outline: none;
 	}
+
 }
+
 
 @media (min-width: 1024px) { 
 	.cardPopularTest{
@@ -62,17 +72,23 @@ $transition-time: 2.3s;
 				&:before{
 					transform: translateZ(30px);
 				}
+
 				.popularTest-title{
 					transform: translateZ(100px);
 				}
+
 				.taom-logo{
 					transform: translateZ(60px);
 				}
+
 				p{
 					transform: translateZ(-60px) rotatey(-180deg);
 				}
+
 			}
+
 		}
+
 		.cover{
 			transform-style: preserve-3d;
 			transition: ease all $transition-time;
@@ -81,19 +97,23 @@ $transition-time: 2.3s;
 				transform-style: preserve-3d;
 				transform: translateZ(0px);
 			}
+
 			.popularTest-title{
 				transform-style: preserve-3d;
 				transition: ease all $transition-time;
 				z-index:3;
 				transform: translateZ(0px);
 			}
+
 			.taom-logo{
 				transform-style: preserve-3d;
 				transition: ease all $transition-time;
 				z-index:4;
 				transform: translateZ(0px);
 			}
+
 		}
+
 		.cardPopularTest-back{
 			transform-style: preserve-3d;
 			transition: ease all $transition-time;
@@ -105,33 +125,42 @@ $transition-time: 2.3s;
 				background: transparent;
 				outline: none;
 			}
+
 		}
+
 	}
+
 }
+
 @media (max-width: 1023px) {
 	.cardPopularTest:hover{
 		padding-bottom: 280px;
 	}
+
 	.cardPopularTest:hover .popularTest-img{
 		width: 100%;
   		height: 100%;
   		object-fit: cover;
 	}
+
 	.popularTest-img{
 		width: 100%;
   		height: 100%;
   		object-fit: cover;
 	}
+
 	.popularTest-title-left {
 		transform: translateX(-50%);
 		transition: ease all $transition-time;
 	}
+
 	.cardPopularTest:hover .popularTest-title-left {
 		left: 0;
 		transform: translateX(0);
 		transition: ease all $transition-time;
 		margin-left: 2.4rem;
 	}
+
 	.popularTest-title-left::after {
 		content: "";
 		position: absolute;
@@ -143,6 +172,7 @@ $transition-time: 2.3s;
 		box-shadow: 0 0 12px rgba(0,0,0,.3); 
 		z-index: 2;
 	  }
+
 	  .popularTest-title-left::after {
 		opacity: 0;
 		transform: scaleX(0);
@@ -150,6 +180,7 @@ $transition-time: 2.3s;
 		transition-delay: 500ms;
 		transform-origin: right;
 	  }
+
 	  .cardPopularTest:hover .popularTest-title-left::after,
 	  .cardPopularTest:focus-within .popularTest-title-left::after {
 		opacity: 1;
@@ -158,12 +189,14 @@ $transition-time: 2.3s;
 		transition: opacity 2s ease-in, transform 2s ease-in;
 		transition-delay: 500ms;
 	  }
+
 	  .cardPopularTest-back{
 			opacity: 0;
 			transition: opacity 1000ms ease-in, transform 2s ease-out;
 			z-index: 3;
 			background: transparent;
 		}
+
 		.cardPopularTest:hover .cardPopularTest-back{
 			opacity: 1;
 			transform: scaleX(1);
@@ -172,6 +205,7 @@ $transition-time: 2.3s;
 			z-index: 3;
 			background: transparent;
 		}
+
 	.cardPopularTest{
 		transition: ease-in-out all $transition-time;
 		perspective: 1200px;
@@ -180,42 +214,56 @@ $transition-time: 2.3s;
 			.taom-logo{
 				transform:translate(0, 10%);
 			}
+
 			
 		}
+
 		.taom-logo{
 			transition: ease all $transition-time;
 			z-index:4;
 			transform: translateZ(0px);
 		}
+
 	}
+
 }
+
 @media (max-width: 500px) {
 	.cardPopularTest{
 		width: 100%;
 	}
+
 	.popularTest-title-left{
 		font-size: 4.3vw;
 	}
+
 	#banner h1{
 		font-size: 34px;
 	}
+
 	#banner p{
 		font-size: 20px;
 	}
+
 }
+
 @media (max-width: 400px) {
 	.popularTest-title-left{
 		font-size: 5.2vw;
 	}
+
 }
+
 
 .groupTest-right .titleGroupTests{
 	grid-area: 3/3/3/1;
 }
+
 .groupTest-left .titleGroupTests{
 	grid-area: 4/5/3/6;
 	min-width: 200px;
 }
+
 .line{
 	border: 0.1px solid white;
     width: 50px;
@@ -223,50 +271,65 @@ $transition-time: 2.3s;
     height: 0;
 	transition: ease all $transition-time;
 }
+
 @media (max-width:1024px) {
 	.line{
 		width: 40px;
 	}
+
 }
-.index0:hover .line, .index1:hover .line{
+
+.index-0-of-test-in-group:hover .line, .index-1-of-test-in-group:hover .line{
     width: 40px;
 	transition: ease all $transition-time;
 }
-.groupTest-right .index0{
+
+.groupTest-right .index-0-of-test-in-group{
 	grid-area: 1/2/3/4;
 	position: relative;
     left: 2.4rem;
 }
-.groupTest-left .index0{
+
+.groupTest-left .index-0-of-test-in-group{
 	grid-area: 1/4/3/2;
 	position: relative;
     left: 0;
 }
+
 @media (max-width: 1400px) {
-	.groupTest-right .index0{
+	.groupTest-right .index-0-of-test-in-group{
 	left: 2rem;
 	}
-	.index3:hover .back-gray, .index5:hover .back-gray {
+
+	.index-3-of-test-in-group:hover .back-gray, .index-5-of-test-in-group:hover .back-gray {
 		height: 18vw !important;
 	}
+
 }
+
 @media (max-width: 1700px) {
-	.index3:hover .back-gray, .index5:hover .back-gray {
+	.index-3-of-test-in-group:hover .back-gray, .index-5-of-test-in-group:hover .back-gray {
 		height: 16vw !important;
 	}
+
 }
+
 @media (max-width: 1200px) {
-	.groupTest-right .index0{
+	.groupTest-right .index-0-of-test-in-group{
 	left: 1.5rem;
 	}
-	.index4 .test-title-items{
+
+	.index-4-of-test-in-group .test-title-items{
 		max-width: 150px;
 	}
-	.index6 .test-title-items{
+
+	.index-6-of-test-in-group .test-title-items{
 		max-width: 200px;
 	}
+
 }
-.index0 .back-gray{
+
+.index-0-of-test-in-group .back-gray{
 	&:after{
 		content: '';
 		position: absolute;
@@ -278,61 +341,77 @@ $transition-time: 2.3s;
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.4);
 	}
+
+	background-color: #8090B8;
 	clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);
 }
-.index0:hover .test-title-items-back, .index1:hover .test-title-items-back, .index2:hover .test-title-items-back, .index3:hover .test-title-items-back, .index4:hover .test-title-items-back, .index5:hover .test-title-items-back, .index6:hover .test-title-items-back,.index7:hover .test-title-items-back{
+
+.index-0-of-test-in-group:hover .test-title-items-back, .index-1-of-test-in-group:hover .test-title-items-back, .index-2-of-test-in-group:hover .test-title-items-back, .index-3-of-test-in-group:hover .test-title-items-back, .index-4-of-test-in-group:hover .test-title-items-back, .index-5-of-test-in-group:hover .test-title-items-back, .index-6-of-test-in-group:hover .test-title-items-back,.index-7-of-test-in-group:hover .test-title-items-back{
 	z-index: 10;
 	opacity: 1;
 	transition: ease all 5s;
 }
-.index0 .test-title-items-back, .index1 .test-title-items-back, .index2 .test-title-items-back, .index3 .test-title-items-back, .index4 .test-title-items-back, .index5 .test-title-items-back, .index6 .test-title-items-back, .index7 .test-title-items-back{
+
+.index-0-of-test-in-group .test-title-items-back, .index-1-of-test-in-group .test-title-items-back, .index-2-of-test-in-group .test-title-items-back, .index-3-of-test-in-group .test-title-items-back, .index-4-of-test-in-group .test-title-items-back, .index-5-of-test-in-group .test-title-items-back, .index-6-of-test-in-group .test-title-items-back, .index-7-of-test-in-group .test-title-items-back{
 	z-index: 1;
 	opacity: 0;
 	transition: ease all $transition-time;
 }
-.index0 .test-title{
+
+.index-0-of-test-in-group .test-title{
 	margin-left: 2vw;
 	margin-bottom: 3vw;
 }
-.index0:hover .back-gray {
+
+.index-0-of-test-in-group:hover .back-gray {
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
 	transform: translate(-25%, 0);
 	width: 45vw;
 	clip-path: polygon(0px 0px, 0px 100%, 53% 100%, 97% 0px);
 }
-.index0 .back-gray, .index1 .back-gray{
+
+.index-0-of-test-in-group .back-gray, .index-1-of-test-in-group .back-gray{
 	z-index: 3;
 	transition: ease all $transition-time;
 }
-.index0 .position-test-title{
+
+.index-0-of-test-in-group .position-test-title{
 	justify-content: end;
     align-items: center;
 }
 
-.groupTest-right .index1{
+
+.groupTest-right .index-1-of-test-in-group{
 	grid-area: 1/3/3/5;
 }
-.groupTest-left .index1{
+
+.groupTest-left .index-1-of-test-in-group{
 	grid-area: 1/5/3/3;
 	position: relative;
     left: -2.4rem;
 }
+
 @media (max-width: 1400px) {
-	.groupTest-left .index1{
+	.groupTest-left .index-1-of-test-in-group{
 	left: -2rem;
 	}
+
 }
+
 @media (max-width: 1200px) {
-	.groupTest-left .index1{
+	.groupTest-left .index-1-of-test-in-group{
 	left: -1.5rem;
 	}
+
 }
-.index1 .back-gray{
+
+.index-1-of-test-in-group .back-gray{
 	&:after{
 		content: '';
 		position: absolute;
@@ -343,166 +422,205 @@ $transition-time: 2.3s;
 		z-index: 1;
 		background: rgba(0,0,0,.4);
 	}
+
+	background-color: #8f9dc0;
 	clip-path:polygon(100% 0%, 60% 0%, 0% 100%, 100% 100%);
 }
-.index1 .test-title{
+
+.index-1-of-test-in-group .test-title{
 	margin-right: 2vw;
 	margin-bottom: 3vw;
 }
-.index1 .test-title-items{
+
+.index-1-of-test-in-group .test-title-items{
 	width: 100%;
 }
-.index1:hover .back-gray {
+
+.index-1-of-test-in-group:hover .back-gray {
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
 	width: 45vw;
 	clip-path:polygon(100% 0%, 80% -85%, 0% 100%, 100% 100%);
 }
-.index1 .position-test-title{
+
+.index-1-of-test-in-group .position-test-title{
 	justify-content: start;
     align-items: center;
 }
-.index1 .test-title-items-back{
+
+.index-1-of-test-in-group .test-title-items-back{
 	justify-content: end;
 }
-.groupTest-right .index2:hover .back-gray, .groupTest-right .index4:hover .back-gray, .groupTest-right .index7:hover .back-gray {
+
+.groupTest-right .index-2-of-test-in-group:hover .back-gray, .groupTest-right .index-4-of-test-in-group:hover .back-gray, .groupTest-right .index-7-of-test-in-group:hover .back-gray {
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: -8vw;
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
 	transform: translate(-47%, 0);
     width: 30vw;
 }
-.groupTest-right .index2 .back-gray,.groupTest-right .index4 .back-gray, .groupTest-right .index7 .back-gray{
+
+.groupTest-right .index-2-of-test-in-group .back-gray,.groupTest-right .index-4-of-test-in-group .back-gray, .groupTest-right .index-7-of-test-in-group .back-gray{
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: 0;
 	}
+
 	.position-test-title{
 		justify-content: end;
     	align-items: center;
     	width: 90%;
 	}
+
 	z-index: 3;
 	transition: ease all $transition-time;
 }
-.groupTest-left .index2:hover .back-gray, .groupTest-left .index4:hover .back-gray, .groupTest-left .index7:hover .back-gray {
+
+.groupTest-left .index-2-of-test-in-group:hover .back-gray, .groupTest-left .index-4-of-test-in-group:hover .back-gray, .groupTest-left .index-7-of-test-in-group:hover .back-gray {
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: 8vw;
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
     width: 30vw;
 }
-.groupTest-left .index2 .back-gray,.groupTest-left .index4 .back-gray, .groupTest-left .index7 .back-gray{
+
+.groupTest-left .index-2-of-test-in-group .back-gray,.groupTest-left .index-4-of-test-in-group .back-gray, .groupTest-left .index-7-of-test-in-group .back-gray{
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: 0;
 	}
+
 	.test-title-items-back{
 		justify-content: center;
 	}
+
 	.position-test-title{
 		justify-content: start;
     	align-items: center;
     	width: 90%;
 	}
+
 	.test-title{
 		max-width:200px;
 	}
+
 	z-index: 3;
 	transition: ease all $transition-time;
 }
-.index3:hover .back-gray, .index5:hover .back-gray {
+
+.index-3-of-test-in-group:hover .back-gray, .index-5-of-test-in-group:hover .back-gray {
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	.test-title-items{
 		position: absolute;
 		top: 26px;
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
     height: 11.3vw;
 }
-.index3 .back-gray, .index5 .back-gray{
+
+.index-3-of-test-in-group .back-gray, .index-5-of-test-in-group .back-gray{
 	.test-title-items{
 		position: absolute;
 		top: 26px;
 	}
+
 	.position-test-title{
 		justify-content: center;
     	align-items: center;
     	width: 90%;
     	height: 50%;
 	}
+
 	.position-test-title p{
     	max-width: 100%;
 	}
+
 	.test-title-items-back{
 		justify-content: center;
     	align-items: end;
 	}
+
 	z-index: 3;
 	transition: ease all $transition-time;
 }
-.index6:hover .back-gray{
+
+.index-6-of-test-in-group:hover .back-gray{
 	&:after{
 		transition: ease all $transition-time;
 		background: rgba(0,0,0,.8);
 	}
+
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: -13vw;
 	}
+
 	z-index: 9;
 	transition: ease all $transition-time;
 }
-.index6 .back-gray{
+
+.index-6-of-test-in-group .back-gray{
 	.test-title-items{
 		position: relative;
 		transition: ease all $transition-time;
 		left: 0px;
 	}
+
 	.position-test-title{
 		justify-content: center;
 		align-items: center;
 		width: 50%;
 		height: 100%;
 	}
+
 	.position-test-title p{
     	max-width: 100%;
 	}
+
 	.test-title-items-back{
 		margin-right: 5%;
 		justify-content: end;
 		align-items: end;
 	}
+
 	z-index: 3;
 	transition: ease all $transition-time;
 }
-.index2 .back-gray,.index3 .back-gray,.index4 .back-gray ,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
+
+.index-2-of-test-in-group .back-gray,.index-3-of-test-in-group .back-gray,.index-4-of-test-in-group .back-gray ,.index-5-of-test-in-group .back-gray,.index-6-of-test-in-group .back-gray,.index-7-of-test-in-group .back-gray{
 	padding-bottom: 0;
 	&:after{
 		content: '';
@@ -516,126 +634,165 @@ $transition-time: 2.3s;
 		background: rgba(0,0,0,.4);
 		border-radius: 6px;
 	}
+
 }
-.index2 .back-gray,.index3 .back-gray,.index4 .back-gray,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
+
+.index-2-of-test-in-group .back-gray,.index-3-of-test-in-group .back-gray,.index-4-of-test-in-group .back-gray,.index-5-of-test-in-group .back-gray,.index-6-of-test-in-group .back-gray,.index-7-of-test-in-group .back-gray{
 	justify-content: center;
 }
-.index3 .back-gray,.index5 .back-gray,.index6 .back-gray{
+
+.index-3-of-test-in-group .back-gray,.index-5-of-test-in-group .back-gray,.index-6-of-test-in-group .back-gray{
 	align-items: center;
 }
-.index2 .test-title,.index4 .test-title,.index7 .test-title{
+
+.index-2-of-test-in-group .test-title,.index-4-of-test-in-group .test-title,.index-7-of-test-in-group .test-title{
 	margin-bottom: 3vw
 }
-.groupTest-right .index2{
+
+.groupTest-right .index-2-of-test-in-group{
 	grid-area: 1/5/3/6;
 }
-.groupTest-right .index3{
+
+.groupTest-right .index-3-of-test-in-group{
 	grid-area: 3/3/3/5;
 }
-.groupTest-right .index4{
+
+.groupTest-right .index-4-of-test-in-group{
 	grid-area: 3/5/6/6;
 }
-.groupTest-right .index5{
+
+.groupTest-right .index-5-of-test-in-group{
 	grid-area: 4/2/4/4;
 }
-.groupTest-right .index6{
+
+.groupTest-right .index-6-of-test-in-group{
 	grid-area: 5/1/5/4;
 }
-.groupTest-right .index7{
+
+.groupTest-right .index-7-of-test-in-group{
 	grid-area: 4/4/6/4;
 }
-.groupTest-left .index2{
+
+.groupTest-left .index-2-of-test-in-group{
 	grid-area: 1/2/3/1;
 }
-.groupTest-left .index3{
+
+.groupTest-left .index-3-of-test-in-group{
 	grid-area: 4/4/3/2;
 }
-.groupTest-left .index4{
+
+.groupTest-left .index-4-of-test-in-group{
 	grid-area: 6/2/3/1;
 }
-.groupTest-left .index5{
+
+.groupTest-left .index-5-of-test-in-group{
 	grid-area: 5/5/4/3;
 }
-.groupTest-left .index6{
+
+.groupTest-left .index-6-of-test-in-group{
 	grid-area: 6/3/5/6;
 }
-.groupTest-left .index7{
+
+.groupTest-left .index-7-of-test-in-group{
 	grid-area: 6/3/4/2;
 }
+
 
 @media (max-width: 1023px) {
 	.groupTest-right .titleGroupTests{
 		grid-area: 1/5/2/1;
 	}
-	.groupTest-right .index0{
+
+	.groupTest-right .index-0-of-test-in-group{
 		left: 0;
     	grid-area: 4/4/2/1;
 	}
-	.groupTest-right .index1{
+
+	.groupTest-right .index-1-of-test-in-group{
 		grid-area: 2/2/4/5;
 	}
-	.groupTest-right .index2{
+
+	.groupTest-right .index-2-of-test-in-group{
 		grid-area: 4/5/6/3;
 	}
-	.groupTest-right .index3{
+
+	.groupTest-right .index-3-of-test-in-group{
 		grid-area: 6/1/4/3;
 	}
-	.groupTest-right .index4{
+
+	.groupTest-right .index-4-of-test-in-group{
 		grid-area: 7/5/11/3;
 	}
-	.groupTest-right .index5{
+
+	.groupTest-right .index-5-of-test-in-group{
 		grid-area: 9/1/7/3;
 	}
-	.groupTest-right .index6{
+
+	.groupTest-right .index-6-of-test-in-group{
 		grid-area: 6/1/6/5;
 	}
-	.groupTest-right .index7{
+
+	.groupTest-right .index-7-of-test-in-group{
 		grid-area: 9/1/11/3;
 	}
+
 	.groupTest-left .titleGroupTests{
 		grid-area: 1/5/2/1;
 	}
-	.groupTest-left .index0{
+
+	.groupTest-left .index-0-of-test-in-group{
     	grid-area: 4/4/2/1;
 	}
-	.groupTest-left .index1{
+
+	.groupTest-left .index-1-of-test-in-group{
 		left: 0;
 		grid-area: 2/2/4/5;
 	}
-	.groupTest-left .index2{
+
+	.groupTest-left .index-2-of-test-in-group{
 		grid-area: 4/5/6/3;
 	}
-	.groupTest-left .index3{
+
+	.groupTest-left .index-3-of-test-in-group{
 		grid-area: 6/1/4/3;
 	}
-	.groupTest-left .index4{
+
+	.groupTest-left .index-4-of-test-in-group{
 		grid-area: 7/5/11/3;
 	}
-	.groupTest-left .index5{
+
+	.groupTest-left .index-5-of-test-in-group{
 		grid-area: 9/1/7/3;
 	}
-	.groupTest-left .index6{
+
+	.groupTest-left .index-6-of-test-in-group{
 		grid-area: 6/1/6/5;
 	}
-	.groupTest-left .index7{
+
+	.groupTest-left .index-7-of-test-in-group{
 		grid-area: 9/1/11/3;
 	}
-	.index3 .test-title,.index5 .test-title{
+
+	.index-3-of-test-in-group .test-title,.index-5-of-test-in-group .test-title{
 		margin-bottom: 3vw;
 	}
-	.index3 .back-gray,.index5 .back-gray{
+
+	.index-3-of-test-in-group .back-gray,.index-5-of-test-in-group .back-gray{
 		align-items: end;
 	}
-	.index0 .back-gray{
+
+	.index-0-of-test-in-group .back-gray{
 		clip-path: polygon(0% 0%, 0% 100%, 35% 100%, 95% 0%);
 	}
-	.index0:hover .back-gray {
+
+	.index-0-of-test-in-group:hover .back-gray {
 		transform: translate(0, -141px);
 		width: 95%;
 		height: 19rem;
 		clip-path: polygon(0% 0%, 0% 100%, 37% 100%, 152% 0%);
 	}
-	.index0 .position-test-title {
+
+	.index-0-of-test-in-group .position-test-title {
 		width: 100%;
 		padding: 0;
 		margin: 3% 0 0 0;
@@ -643,67 +800,81 @@ $transition-time: 2.3s;
 		justify-content: center;
 		height: 115px;
 	}
-	.index1 .back-gray{
+
+	.index-1-of-test-in-group .back-gray{
 		clip-path: polygon(100% 0%, 65% 0%, 5% 100%, 100% 100%);
 	}
-	.index1:hover .back-gray {
+
+	.index-1-of-test-in-group:hover .back-gray {
 		width: 100%;
 		height: 19rem;
 		clip-path: polygon(100% 0%, 66% 0%, -45% 100%, 100% 100%);
 	}
-	.index1 .test-title-items-back{
+
+	.index-1-of-test-in-group .test-title-items-back{
 		margin-left: 5%;
 		margin: 0;
 		align-items: end;
 	}
-	.index1 .position-test-title{
+
+	.index-1-of-test-in-group .position-test-title{
 		width: 100%;
 		align-items: end;
 		justify-content: center;
 		height: 115px;
 		margin-bottom: 3%;
 	}
-	.index1 .test-title {
+
+	.index-1-of-test-in-group .test-title {
 		margin: 4.5rem 2vw 0 0;
 	}
-	.index1 .test-title-items{
+
+	.index-1-of-test-in-group .test-title-items{
 		align-items: start;
 	}
-	.index2:hover .back-gray,.index3:hover .back-gray,.index5:hover .back-gray, .index7:hover .back-gray {
+
+	.index-2-of-test-in-group:hover .back-gray,.index-3-of-test-in-group:hover .back-gray,.index-5-of-test-in-group:hover .back-gray, .index-7-of-test-in-group:hover .back-gray {
 		&:after{
 			transition: ease all $transition-time;
 			background: rgba(0,0,0,.8);
 		}
+
 		.test-title-items{
 			position: relative !important;
 			top: 0 !important;
 			left: 0 !important;
 		}
+
 		z-index: 9;
 		transition: ease all $transition-time;
 		transform: translate(0, -46.5%) !important;
 		width: 100% !important;
 		height: 19rem !important;
 	}
-	 .index2 .back-gray,.index3 .back-gray,.index5 .back-gray, .index7 .back-gray{
+
+	 .index-2-of-test-in-group .back-gray,.index-3-of-test-in-group .back-gray,.index-5-of-test-in-group .back-gray, .index-7-of-test-in-group .back-gray{
 		.test-title-items{
 			position: relative !important;
 			top: 0 !important;
 			left: 0 !important;
 		}
+
 		.test-title-items-back{
 			justify-content: center;
 			align-items: start;
 		}
+
 		.position-test-title{
 			justify-content: center !important;
 			height: 60%;
 			width: 100% !important;
 			padding-top: 3%;
 		}
+
 		.position-test-title p{
 			max-width: 80%;
 		}
+
 		z-index: 3;
 		transition: ease all $transition-time;
 	}
@@ -712,39 +883,47 @@ $transition-time: 2.3s;
 
 
 
-	.index4:hover .back-gray {
+
+	.index-4-of-test-in-group:hover .back-gray {
 		&:after{
 			transition: ease all $transition-time;
 			background: rgba(0,0,0,.8);
 		}
+
 		.test-title-items{
 			position: relative !important; 
 			transition: ease all $transition-time;
 			left: -13vw !important;
 		}
+
 		z-index: 9;
 		transition: ease all $transition-time;
 		transform: translate(-47%, 0) !important;
 		width: 29.5rem !important;
 	}
-	.index4 .back-gray{
+
+	.index-4-of-test-in-group .back-gray{
 		.test-title-items{
 			position: relative !important;
 			transition: ease all $transition-time;
 			left: 0 !important;
 		}
+
 		.position-test-title{
 			justify-content: end !important;
 			align-items: center !important;
 			width: 90% !important;
 			padding-top: 3%;
 		}
+
 		.position-test-title p{
 			max-width: 200px !important;
 		}
+
 		.test-title-items-back{
 			justify-content: start !important;
 		}
+
 		z-index: 3;
 		transition: ease all $transition-time;
 	}
@@ -765,46 +944,57 @@ $transition-time: 2.3s;
 
 
 
-	.index6:hover .back-gray{
+
+	.index-6-of-test-in-group:hover .back-gray{
 		.test-title-items{
 			position: relative;
 			left: 0;
 			top: -70px;
 		}
+
 		z-index: 9;
 		transition: ease all $transition-time;
 		height: 14rem;
 	}
-	.index6 .back-gray{
+
+	.index-6-of-test-in-group .back-gray{
 		.test-title-items{
 			position: relative;
 			left: 0;
 			top: 0;
 		}
+
 		.position-test-title{
 			justify-content: center;
 			align-items: center;
 			width: 90%;
 			height: 50%;
 		}
+
 		.position-test-title p{
 			max-width: 100%;
 		}
+
 		.test-title-items-back{
 			justify-content: center;
 			align-items: end;
 			margin-right: 0;
 		}
+
 		z-index: 3;
 		transition: ease all $transition-time;
 	}
-	.index4 .test-title-items{
+
+	.index-4-of-test-in-group .test-title-items{
 		max-width: 200px;
 	}
-	.index6 .test-title-items{
+
+	.index-6-of-test-in-group .test-title-items{
 		max-width: 300px;
 	}
+
 }
+
 
 
 
@@ -824,6 +1014,7 @@ $transition-time: 2.3s;
 			padding-top: 25px;
 			padding-bottom: 50px;
 		}
+
 		.swiper-slide{
 			background-position: center;
 			background-size: cover;
@@ -834,21 +1025,26 @@ $transition-time: 2.3s;
 			width: 50vw;
 			height: 50vw;
 		}
+
 		.swiper-slide .test-img{
 			display: block;
 			width: 100%;
 		}
+
 	}
-	.index0 .back-gray,.index1 .back-gray{
+
+	.index-0-of-test-in-group .back-gray,.index-1-of-test-in-group .back-gray{
 		clip-path: none;
 	}
-	.index0:hover .back-gray, .index1:hover .back-gray, .index2:hover .back-gray, .index3:hover .back-gray, .index4:hover .back-gray, .index5:hover .back-gray, .index6:hover .back-gray, .index7:hover .back-gray{
+
+	.index-0-of-test-in-group:hover .back-gray, .index-1-of-test-in-group:hover .back-gray, .index-2-of-test-in-group:hover .back-gray, .index-3-of-test-in-group:hover .back-gray, .index-4-of-test-in-group:hover .back-gray, .index-5-of-test-in-group:hover .back-gray, .index-6-of-test-in-group:hover .back-gray, .index-7-of-test-in-group:hover .back-gray{
 		transform: translate(0, 0) !important;
 		width: 100% !important;
 		height: 100% !important;
 		clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 152% 0%) !important;
 	}
-	.index0 .position-test-title, .index1 .position-test-title,.index2 .position-test-title,.index3 .position-test-title,.index4 .position-test-title,.index5 .position-test-title,.index6 .position-test-title,.index7 .position-test-title  {
+
+	.index-0-of-test-in-group .position-test-title, .index-1-of-test-in-group .position-test-title,.index-2-of-test-in-group .position-test-title,.index-3-of-test-in-group .position-test-title,.index-4-of-test-in-group .position-test-title,.index-5-of-test-in-group .position-test-title,.index-6-of-test-in-group .position-test-title,.index-7-of-test-in-group .position-test-title  {
 		width: 100% !important;
 		height: 100% !important;
 		align-items: center !important;
@@ -856,67 +1052,113 @@ $transition-time: 2.3s;
 		background-color: black !important;
 		margin: 0 !important;
 	}
-	.index0 .test-title {
+
+	.index-0-of-test-in-group .test-title {
 		margin-left: 0; 
 	}
-	.index1 .test-title-items{
+
+	.index-1-of-test-in-group .test-title-items{
 		justify-content: center;
 	}
-	.index1 .test-title{
+
+	.index-1-of-test-in-group .test-title{
 		margin: 50px 0 0 0;
 	}
-	.index0 .back-gray,.index1 .back-gray,.index2 .back-gray,.index3 .back-gray,.index4 .back-gray,.index5 .back-gray,.index6 .back-gray,.index7 .back-gray{
+
+	.index-0-of-test-in-group .back-gray,.index-1-of-test-in-group .back-gray,.index-2-of-test-in-group .back-gray,.index-3-of-test-in-group .back-gray,.index-4-of-test-in-group .back-gray,.index-5-of-test-in-group .back-gray,.index-6-of-test-in-group .back-gray,.index-7-of-test-in-group .back-gray{
 		justify-content: center !important;
 		align-items: center !important;
 		margin-bottom: 0 !important;
 	}
+
 	.test-title{
 		margin-top: 50px;
 	}
-	.index0,.index1,.index2,.index3,.index4,.index5,.index6,.index7{
+
+	.index-0-of-test-in-group,.index-1-of-test-in-group,.index-2-of-test-in-group,.index-3-of-test-in-group,.index-4-of-test-in-group,.index-5-of-test-in-group,.index-6-of-test-in-group,.index-7-of-test-in-group{
 		overflow: hidden;
 	}
-	.index6:hover .back-gray{
+
+	.index-6-of-test-in-group:hover .back-gray{
 		.test-title-items{
 			position: relative;
 			left: 0;
 			top: 0;
 		}
+
 		.position-test-title p{
 			max-width: 80%;
 		}
+
 	}
-	.index4 .back-gray, .index6 .back-gray{
+
+	.index-4-of-test-in-group .back-gray, .index-6-of-test-in-group .back-gray{
 		.position-test-title{
 			width: 100% !important;
 			justify-content: center !important;
 			align-items: center !important;
 		}
+
 		.position-test-title p{
 			max-width: 80%;
 		}
+
 	}
-	.index4:hover .back-gray{
+
+	.index-4-of-test-in-group:hover .back-gray{
 		.test-title-items{
 			position: relative !important;
 			left: 0 !important;
 			top: 0 !important;
 		}
+
 		.position-test-title{
 			width: 100% !important;
 			justify-content: center !important;
 			align-items: center !important;
 		}
+
 		.position-test-title p{
 			max-width: 80% !important;
 		}
+
 	}
+
+}
+
+
+.index-2-of-test-in-group{
+	background-color: #9eaac9;
+}
+
+.index-3-of-test-in-group{
+	background-color: #adb7d1;
+}
+
+.index-4-of-test-in-group{
+	background-color: #bcc4d9;
+}
+
+.index-5-of-test-in-group{
+	background-color: #cbd1e2;
+}
+
+.index-6-of-test-in-group{
+	background-color: #dadeea;
+}
+
+.index-7-of-test-in-group{
+	background-color: #e9ebf2;
 }
 
 //Шаблон анимации
 // @keyframes left-shift{
 // 	0%{transform: translate(0, 0); clip-path: polygon(0px 0px, 0px 100%, 40% 100%, 100% 0px);}
+
 // 	50%{transform: translate(-33%, 0);}
+
 // 	75%{transform: translate(-33%, 0); width: 37vw;}
+
 // 	100%{transform: translate(-33%, 0); width: 37vw; clip-path: polygon(0px 0px, 0px 100%, 40% 150%, 100% 0px);}
+
 // }
