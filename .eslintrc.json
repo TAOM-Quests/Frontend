@@ -1,7 +1,8 @@
 {
   "root": true,
   "ignorePatterns": [
-    "projects/**/*"
+    "projects/**/*",
+    "src/environments/*.ts"
   ],
   "overrides": [
     {
@@ -20,6 +21,7 @@
       ],
       "plugins": [
         "import",
+        "simple-import-sort",
         "@stylistic/eslint-plugin-js"
       ],
       "rules": {
@@ -27,7 +29,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "tq",
             "style": "camelCase"
           }
         ],
@@ -39,6 +41,11 @@
             "style": "kebab-case"
           }
         ],
+        "no-case-declarations": "off",
+
+        //sort-import
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
 
         // typescript rules
         "@typescript-eslint/no-explicit-any": "off",
@@ -72,7 +79,11 @@
           "anonymous": "always",
           "named": "never",
           "asyncArrow": "always"
-        }]
+        }],
+        "@stylistic/js/padding-line-between-statements": [
+          "error",
+          {"blankLine": "always", "prev": "*", "next": "return"}
+        ]
       }
     },
     {

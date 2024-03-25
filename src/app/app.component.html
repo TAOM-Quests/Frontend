@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<tq-img-modal
+    *ngIf="imgModalService.isUsingModal"
+    [imgPath]="imgModalService.imgPath"
+></tq-img-modal>
+
+<tq-loading
+    *ngIf="(isGlobalLoading | async) === true"
+></tq-loading>
+
+<div [ngClass]="{'hidden': (isGlobalLoading | async) === true}">
+    <tq-header></tq-header>
+    <router-outlet></router-outlet>
+    <tq-footer></tq-footer>
+</div>

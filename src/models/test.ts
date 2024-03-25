@@ -1,10 +1,20 @@
 export interface ITest {
+  _id: string,
+  group: string;
+  title: string;
+  tags: string[];
+  difficult: string;
+  department: string;
+  results: IResult[];
+  description: string;
+  questions: IQuestion[];
+}
+
+export interface ITestDTO {
   title: string;
   tags: string[];
   group: string;
   difficult: string;
-  results: IResult[];
-  questions: IQuestion[];
 }
 
 interface IResult {
@@ -12,11 +22,13 @@ interface IResult {
   description: string;
 }
 
-interface IQuestion {
+export interface IQuestion {
   text: string;
-  type: QuestionType;
   answers: string[];
-  correctAnswer?: string;
+  type: QuestionType;
+  correctAnswer: string[];
+  images?: string[];
+  language?: string;
 }
 
-type QuestionType = 'one' | 'many';
+export type QuestionType = 'one' | 'many' | 'sorting' | 'link' | 'code' | 'free';

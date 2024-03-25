@@ -1,0 +1,61 @@
+<div class="w-full">
+    <h1 class="text-3xl font-bold mb-5 text-center max-md:text-xl">
+        {{ question.text }}
+    </h1>
+    <div class="flex flex-row flex-wrap w-full justify-center items-center">
+        <img class="w-5/12 max-h-[650px] min-w-64 m-3" *ngFor="let image of question.images" 
+             alt=""
+             tqImgModal
+             src="../../assets/tests/{{image}}.svg" 
+        >
+    </div>
+    <ng-container *ngIf="question.type === 'one'">
+        <tq-question-one
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'many'">
+        <tq-question-many
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'sorting'">
+        <tq-question-sorting
+            [maxCount]="999"
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'link'">
+        <tq-question-sorting
+            [maxCount]="1"
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'code'">
+        <tq-question-code
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+
+    <ng-container *ngIf="question.type === 'free'">
+        <tq-question-free
+            [question]="question"
+            (reply)="onReply($event)"
+            (next)="onNext()"
+        />
+    </ng-container>
+</div>

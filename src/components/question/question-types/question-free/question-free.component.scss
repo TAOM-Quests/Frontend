@@ -1,0 +1,18 @@
+.correct {
+    border-color: #BDF695;
+    background-color: #BDF695;
+}
+
+.wrong {
+    border-color: #E85C5C;
+    background-color: #E85C5C;
+}
+
+.shadow-box{
+    box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 25%);
+}
+
+.disabled{
+    opacity: 0.5;
+    cursor: auto;
+}

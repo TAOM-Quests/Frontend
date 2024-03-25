@@ -1,0 +1,67 @@
+// .vanillaTilt {
+//   width: 300px;
+//   height: 300px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-self: center;
+//   background-color: aqua;
+//   cursor: pointer;
+// }
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&display=swap');
+
+$cursive: 'Great Vibes', cursive;
+$handwriting: 'Sacramento', cursive;
+
+.bg-img{
+  background-image: url(../../assets/main-page/background-img.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.romanN, .sofia, .marika, .pavel, .romanP{
+  width: 260px;
+  height: 380px;
+  background-position: 50% center;
+  background-size: cover;
+  border-radius: 15px;
+  overflow:hidden;
+  // background-image:url(https://cdn2.unrealengine.com/Unreal+Engine%2FTeaser-Image-3-944x720-54a0ac93e369fd0ee577012df4f1dcd5da67c281.jpg);
+  backdrop-filter: blur(5px);
+  border: 1px solid white;
+}
+
+.romanN:hover, .sofia:hover, .marika:hover, .pavel:hover, .romanP:hover{
+  box-shadow: 0 20px 70px -30px rgba(51, 51, 51, 0.7), 0 50px 100px 0 rgba(51, 51, 51, 0.2);
+  transition: .3s;
+}
+h1 {
+  font-family: $cursive;
+}
+.about-name {
+  font-family: $cursive;
+  font-size: 2.5em;
+  
+  span {
+    display: block;
+    color: white;
+    transform: translateZ(40px);
+    &:nth-child(1){
+      padding-right: 1em;
+      transform: translateZ(60px);
+    }
+    &:nth-child(2){
+      padding-left: 1em;
+      transform: translateZ(60px);
+    }
+    &:nth-child(3){
+      padding-left: 2em;
+      transform: translateZ(80px);
+    }
+  }
+  
+}
