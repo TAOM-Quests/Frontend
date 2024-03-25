@@ -3,7 +3,7 @@
         {{ question.text }}
     </h1>
     <div class="flex flex-row flex-wrap w-full justify-center items-center">
-        <img class="w-5/12 min-w-64 m-3" *ngFor="let image of question.images" 
+        <img class="w-5/12 max-h-[650px] min-w-64 m-3" *ngFor="let image of question.images" 
              alt=""
              tqImgModal
              src="../../assets/tests/{{image}}.svg" 
