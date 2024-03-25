@@ -7,7 +7,7 @@
            [(ngModel)]="answer"
            [ngClass]="{'correct': isAnswered && isCorrectAnswer(),
                       'wrong': isAnswered && !isCorrectAnswer() 
-                     }"
+                      }"
     >
 
     <span class="italic text-gray-500 flex flex-row items-end flex-wrap justify-center"
@@ -21,6 +21,7 @@
     <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
                 border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
             *ngIf="!isAnswered"
+            [ngClass]="{ 'disabled': !answer }"
             (click)="replyQuestion()"
     >Ответить</button>
     <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black

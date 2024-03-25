@@ -15,8 +15,10 @@ export class QuestionFreeComponent {
   public isAnswered: boolean;
 
   public replyQuestion(): void {
-    this.isAnswered = true;
-    this.reply.emit([this.answer]);
+    if (this.answer) {
+      this.isAnswered = true;
+      this.reply.emit([this.answer]);
+    }
   }
 
   public completeQuestion(): void {
@@ -24,8 +26,6 @@ export class QuestionFreeComponent {
   }
 
   public isCorrectAnswer(): boolean {
-    console.log(this.answer.trim(), this.question.correctAnswer);
-    
     return !!this.question.correctAnswer?.includes(this.answer.trim());
   }
 }
