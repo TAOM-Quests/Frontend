@@ -19,7 +19,7 @@
                         'wrong': isAnswered && !isCorrectAnswer(box.name, boxItem)
                      }"
                 >
-                    <div class="w-max">
+                    <div class="w-max max-w-48">
                         <img class="w-20" *ngFor="let image of getAnswerImages(boxItem)" 
                              src="../../assets/tests/{{ image }}.svg" 
                              alt=""
@@ -44,7 +44,7 @@
                  cdkDrag
                  [cdkDragDisabled]="isAnswered"
             >
-                <div class="w-max">
+                <div class="w-max max-w-48">
                     <img class="w-[120px]" *ngFor="let image of getAnswerImages(answer)" 
                          alt=""
                          tqImgModal
