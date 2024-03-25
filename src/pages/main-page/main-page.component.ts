@@ -34,7 +34,7 @@ export class MainPageComponent implements OnInit {
     const departmentGroups: Subject<IGroup[]> = new Subject<IGroup[]>();
     const departments: Subject<IDepartment[]> = new Subject<IDepartment[]>();
 
-    this._testsService.getDepartment('Прикладная информатика')
+    this._testsService.getDepartment('Кафедра прикладной информатики')
       .subscribe((department: IDepartment[]) => {
         this.currentDepartment = department[0];
         departments.next(department);
@@ -53,7 +53,7 @@ export class MainPageComponent implements OnInit {
       loadedGroups.forEach((group: IGroup) => {
         this._testsService.getByGroup(group.name)
           .subscribe((tests: ITest[]) => {
-            this.groups.push({ name: group.name, tests });
+            this.groups.push({ name: group.name, tests: Array(8).fill(undefined).map((nothing, i) => tests[i]) });
             if (!this.popularTests) {
               this.popularTests = tests.slice(0, 3);
             }
