@@ -24,6 +24,7 @@
     <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black
                 border-2 rounded-full font-semibold border-black max-xl:min-w-[200px]"
             *ngIf="!isAnswered"
+            [ngClass]="{ 'disabled': !chosenAnswer }"
             (click)="replyQuestion()"
     >Ответить</button>
     <button class="w-1/4 bg-white px-5 py-2 m-3 text-xl text-black

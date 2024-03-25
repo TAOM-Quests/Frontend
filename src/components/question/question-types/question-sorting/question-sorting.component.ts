@@ -51,6 +51,26 @@ export class QuestionSortingComponent implements OnInit {
         )
       }
     }
+    if (event.previousContainer.data.length === 1 && event.container.data.length === 1 && this.maxCount === 1) {
+      event.container.element.nativeElement.classList.remove('active-box');
+
+      if (event.previousContainer === event.container) {
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
+      } else {
+        transferArrayItem(
+          event.previousContainer.data,
+          event.container.data,
+          0,
+          1,
+        );
+        transferArrayItem(
+          event.container.data,
+          event.previousContainer.data,
+          0,
+          0,
+        );
+      }
+    }
   }
 
   public enableBoxSelectingStyle(event: CdkDragEnter) {
@@ -62,9 +82,11 @@ export class QuestionSortingComponent implements OnInit {
   }
 
   public replyQuestion(): void {
-    this.isAnswered = true;
-    this._prepareRightFormedAnswer();
-    this.reply.emit(this._rightFormedAnswer);
+    if (this.answers.length === 0) {
+      this.isAnswered = true;
+      this._prepareRightFormedAnswer();
+      this.reply.emit(this._rightFormedAnswer);
+    }
   }
 
   public completeQuestion(): void {

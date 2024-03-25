@@ -42,8 +42,10 @@ export class QuestionManyComponent implements OnInit {
   }
 
   public replyQuestion(): void {
-    this.isAnswered = true;
-    this.reply.emit(this.chosenAnswers);
+    if (this.chosenAnswers.length > 0) {
+      this.isAnswered = true;
+      this.reply.emit(this.chosenAnswers);
+    }
   }
 
   public completeQuestion(): void {

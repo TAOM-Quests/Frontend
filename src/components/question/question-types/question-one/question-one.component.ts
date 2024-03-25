@@ -34,8 +34,10 @@ export class QuestionOneComponent {
   }
 
   public replyQuestion(): void {
-    this.isAnswered = true;
-    this.reply.emit([this.chosenAnswer]);
+    if (this.chosenAnswer) {
+      this.isAnswered = true;
+      this.reply.emit([this.chosenAnswer]);
+    }
   }
 
   public completeQuestion(): void {
