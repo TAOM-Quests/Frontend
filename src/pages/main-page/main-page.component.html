@@ -30,12 +30,11 @@
         flex justify-center flex-col 
         w-10/12 
     ">
-        <div *ngFor="let groupName of groups; index as groupIndex">
+        <div *ngFor="let group of groups; index as groupIndex">
             <ng-container 
                 [ngTemplateOutlet]="testsGroup" 
                 [ngTemplateOutletContext]="{
-                    groupName,
-                    groupTests: getTestsByGroup(groupName),
+                    group,
                     align: groupIndex % 2 === 0 ? 'right' : 'left'
                 }"
             />
@@ -87,15 +86,15 @@
     </button>
 </ng-template>
 
-<ng-template #testsGroup let-groupName="groupName" let-groupTests="groupTests" let-align="align">
+<ng-template #testsGroup let-group="group" let-align="align">
     <div class="sm:grid max-sm:inline grid-cols-5 grid-rows-5 max-lg:grid-cols-4 max-lg:grid-rows-10 gap-5 max-2xl:gap-3 max-lg:gap-2 mb-[4rem] mx-auto
     w-full h-full min-h-[700px] max-xl:min-h-[500px] max-lg:min-h-[420px] max-lg:w-[60%] max-lg:min-w-[500px] max-sm:min-w-[280px] max-lg:min-h-[850px] max-sm:min-h-[250px] 
                 groupTest-{{align}}">
         <div class="titleGroupTests">
-            <h1 class="text-3xl max-xl:text-2xl font-bold mb-2 max-xl:mb-1 max-sm:text-2xl">{{ groupName }}</h1>
-            <p class="text-lg max-xl:text-base">Описание туть >-<</p>
+            <h1 class="text-3xl max-xl:text-2xl font-bold mb-2 max-xl:mb-1 max-sm:text-2xl">{{ group.name }}</h1>
+            <p class="text-lg max-xl:text-base">{{ group.description }}</p>
         </div>
-        <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
+        <ng-container *ngFor="let groupTest of group.tests; index as testIndex">
             <ng-container 
                 *ngIf="groupTest"
                 [ngTemplateOutlet]="filledGroupItem"
@@ -127,7 +126,7 @@
                     reverseDirection: true,
                 }"
             >
-                <ng-container *ngFor="let groupTest of groupTests; index as testIndex">
+                <ng-container *ngFor="let groupTest of group.tests; index as testIndex">
                     <ng-template swiperSlide>
                         <ng-container 
                             *ngIf="!!groupTest; else emptyGroupItem"
@@ -140,8 +139,6 @@
         </div>
     </div>
 </ng-template>
-
-
 
 <ng-template #filledGroupItem let-test="test" let-index="index">
     <button class="flex relative w-full h-full rounded-md

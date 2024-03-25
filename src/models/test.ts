@@ -1,11 +1,12 @@
 export interface ITest {
   _id: string,
-  title: string;
-  description: string;
-  tags: string[];
   group: string;
+  title: string;
+  tags: string[];
   difficult: string;
+  department: string;
   results: IResult[];
+  description: string;
   questions: IQuestion[];
 }
 

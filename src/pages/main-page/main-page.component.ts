@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { IGroup } from 'src/models/group';
 import { ITest } from 'src/models/test';
 import { LoadingService } from 'src/services/loading.service';
 import { TestsService } from 'src/services/tests.service';
-import SwiperCore, { Navigation, Pagination, EffectCoverflow } from 'swiper';
+import SwiperCore, { EffectCoverflow, Navigation, Pagination } from 'swiper';
 
 SwiperCore.use([Navigation, Pagination, EffectCoverflow]);
 
@@ -21,26 +23,33 @@ export class MainPageComponent implements OnInit {
   ) {}
 
   public tests: ITest[];
-  public groups: Set<string>;
   public popularTests: ITest[];
+  public groups: { name: string, tests: ITest[] }[];
 
   public ngOnInit() {
+    this.groups = [];
+    const departmentGroups: Subject<IGroup[]> = new Subject<IGroup[]>();
+
     this._loadingService.startGlobalLoading();
-    this._testsService.getAll()
+    this._testsService.getGroupsByDepartment('Прикладная информатика')
       .subscribe(
-        (tests: ITest[]) => {
-          this.tests = tests;
-          this.popularTests = this.tests.slice(0, 3);
-          this.groups = new Set<string>(this.tests.map(test => test.group));
-          this._loadingService.finishGlobalLoading();
-        });
-  }
+        (testGroups: IGroup[]) => {
+          departmentGroups.next(testGroups);
+        }
+      );
 
-  public getTestsByGroup(groupName: string): ITest[] {
-    const testsGroup: ITest[] = this.tests.filter(test => test.group === groupName);
-    const result: ITest[] | undefined[] = Array(8).fill(undefined).map((nothing, i) => testsGroup[i]);
-
-    return result;
+    departmentGroups.subscribe(loadedGroups => {
+      loadedGroups.forEach((group: IGroup) => {
+        this._testsService.getByGroup(group.name)
+          .subscribe((tests: ITest[]) => {
+            this.groups.push({ name: group.name, tests });
+            if (this.popularTests) {
+              this.popularTests = this.tests.slice(0, 3);
+            }
+            this._loadingService.finishGlobalLoading();
+          })
+      })
+    });
   }
 
   public navigateOnTest(test: ITest): void {

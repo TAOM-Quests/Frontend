@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAnswer, IResult } from 'src/models/result';
+import { ISearch } from 'src/models/search-params';
 import { ITest } from 'src/models/test';
 
 import { QuestionService } from './question.service';
 import { RestService } from './rest.service';
+import { IGroup } from 'src/models/group';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +26,34 @@ export class TestsService {
 
   public getByID(id: string): Observable<ITest> {
     return this._rest.getByID('tests', id) as Observable<ITest>;
+  }
+
+  public getByGroup(group: string): Observable<ITest[]> {
+    const params: ISearch = {
+      search: [
+        {
+          field: 'group',
+          operator: 'eq',
+          value: group,
+        }
+      ]
+    }
+
+    return this._rest.getByParams('tests', params) as Observable<ITest[]>;
+  }
+
+  public getGroupsByDepartment(department: string): Observable<IGroup[]> {
+    const params: ISearch = {
+      search: [
+        {
+          field: 'department',
+          operator: 'eq',
+          value: department,
+        }
+      ]
+    }
+
+    return this._rest.getByParams('groups', params) as Observable<IGroup[]>;
   }
 
   public startTest(test: ITest): void {
