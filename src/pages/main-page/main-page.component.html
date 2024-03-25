@@ -1,7 +1,7 @@
-<section id="banner" class="w-full">
+<section id="banner" class="w-full" *ngIf="currentDepartment">
     <div class="flex flex-col justify-center items-center w-full">
-        <h1 class="text-center text-white text-6xl mx-6"><b>Кафедра<br>прикладной информатики</b></h1>
-        <p class="text-white text-2xl max-w-3xl text-center mt-5 mx-6">Кафедра прикладной информатики Кафедра прикладной информатики. Кафедра прикладной информатики Кафедра прикладной информатики. </p>
+        <h1 class="text-center text-white text-6xl mx-6">{{ currentDepartment.name }}</h1>
+        <p class="text-white text-2xl max-w-3xl text-center mt-5 mx-6">{{ currentDepartment.description }}</p>
     </div>
 </section>
 <div class="flex flex-col items-center 

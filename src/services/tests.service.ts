@@ -7,6 +7,7 @@ import { ITest } from 'src/models/test';
 import { QuestionService } from './question.service';
 import { RestService } from './rest.service';
 import { IGroup } from 'src/models/group';
+import { IDepartment } from 'src/models/department';
 
 @Injectable({
   providedIn: 'root',
@@ -54,6 +55,20 @@ export class TestsService {
     }
 
     return this._rest.getByParams('groups', params) as Observable<IGroup[]>;
+  }
+
+  public getDepartment(name: string): Observable<IDepartment[]> {
+    const params: ISearch = {
+      search: [
+        {
+          field: 'name',
+          operator: 'eq',
+          value: name,
+        }
+      ]
+    }
+
+    return this._rest.getByParams('departments', params) as Observable<IDepartment[]>;
   }
 
   public startTest(test: ITest): void {
