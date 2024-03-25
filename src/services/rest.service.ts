@@ -7,14 +7,14 @@ import { ISearch } from 'src/models/search-params';
   providedIn: 'root',
 })
 export class RestService {
+  private _serverURL: string;
   private _serverHostName: string;
-  private _serverURL: string = 'http://localhost:7777/api/';
 
   constructor(private _httpClient: HttpClient) {}
 
   public setConfiguration(serverHostName: string): void {
     this._serverHostName = serverHostName;
-    this._serverURL = `https://${this._serverHostName}/api/`;
+    this._serverURL = `${this._serverHostName}/api/`;
   }
 
   public getAll(collectionName: string): Observable<object> {
