@@ -23,5 +23,6 @@ import { TestPageComponent } from './test-page/test-page.component';
     TestPageComponent,
     AboutUsPageComponent,
   ]
-})
+})фв
 export class PagesModule {}
+фывфывыв
