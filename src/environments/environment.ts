@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://taom-quests.na4u.ru',
+    apiUrl: 'http://taom-quest-api.na4u.ru',
 };

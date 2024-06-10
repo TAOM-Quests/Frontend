@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://taom-quests.na4u.ru",
+      "target": "http://taom-quest-api.na4u.ru",
       "secure": false
     }
   }
